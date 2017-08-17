@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){$(function(){var o="";$(".fil-cat").click(function(){o=$(this).attr("data-rel"),$("#portfolio").fadeTo(100,.1),$("#portfolio div").not("."+o).fadeOut().removeClass("scale-anm"),setTimeout(function(){$("."+o).fadeIn().addClass("scale-anm"),$("#portfolio").fadeTo(300,1)},300)})})});
