@@ -1,15 +1,15 @@
 <div class="toolbar mb2 mt2">
   <button class="btn fil-cat" href="" data-rel="all">All</button>
-  <button class="btn fil-cat" data-rel="web">Websites</button>
-  <button class="btn fil-cat" data-rel="flyers">Flyers</button>
-  <button class="btn fil-cat" data-rel="bcards">Business Cards</button>
+  <button class="btn fil-cat" data-rel="web">Practice Area 1</button>
+  <button class="btn fil-cat" data-rel="flyers">Practice Area 2</button>
+  <button class="btn fil-cat" data-rel="bcards">Practice Area 3</button>
 </div> 
  
 <div style="clear:both;"></div>   
 <div id="filter_container">
   <div class="tile scale-anm web all">
 	  
-	  		<h2>Title</h2>
+	  		<h2>Practice Area 1</h2>
 	  		
 	  		<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  		
@@ -17,7 +17,7 @@
   </div>
   <div class="tile scale-anm bcards all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 3</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -25,7 +25,7 @@
   </div>
   <div class="tile scale-anm web all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 1</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -33,7 +33,7 @@
   </div>
   <div class="tile scale-anm web all">
 	  
-	  	<h2>Title</h2>
+	  	<h2>Practice Area 1</h2>
 	  	
 	  	<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  	
@@ -41,7 +41,7 @@
   </div>
   <div class="tile scale-anm flyers all">
 	  
-	  		<h2>Title</h2>
+	  		<h2>Practice Area 2</h2>
 	  		
 	  		<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  	
@@ -49,7 +49,7 @@
   </div>
   <div class="tile scale-anm bcards all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 3</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -57,7 +57,7 @@
   </div>
   <div class="tile scale-anm flyers all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 2</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -65,7 +65,7 @@
   </div>
   <div class="tile scale-anm flyers all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 2</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -73,7 +73,7 @@
   </div>
   <div class="tile scale-anm web all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 1</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -81,7 +81,7 @@
   </div>
   <div class="tile scale-anm flyers all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 2</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -89,7 +89,7 @@
   </div>
   <div class="tile scale-anm web all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 1</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -98,7 +98,7 @@
   <div class="tile scale-anm bcards all">
 	  
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 3</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -106,7 +106,7 @@
   </div>
   <div class="tile scale-anm web all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 1</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -114,7 +114,7 @@
   </div>
   <div class="tile scale-anm bcards all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 3</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -122,7 +122,7 @@
   </div>
   <div class="tile scale-anm web all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 1</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -130,7 +130,7 @@
   </div> 
   <div class="tile scale-anm web all">
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 1</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	  
@@ -138,7 +138,7 @@
   </div> 
   <div class="tile scale-anm bcards all"> 
 	  
-	  <h2>Title</h2>
+	  <h2>Practice Area 3</h2>
 	  
 	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
 	      
