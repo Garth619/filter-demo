@@ -1,34 +1,30 @@
-<h1>Isotope - combination filters</h1>
+
 
 <div class="filters">
 
   <div class="ui-group">
-    <h3>Color</h3>
+   
     <div class="button-group js-radio-button-group" data-filter-group="color">
-      <button class="button is-checked" data-filter="">any</button>
+     
       <button class="button" data-filter=".red">red</button>
-      <button class="button" data-filter=".blue">blue</button>
-      <button class="button" data-filter=".yellow">yellow</button>
+     
     </div>
   </div>
 
   <div class="ui-group">
-    <h3>Size</h3>
+    
     <div class="button-group js-radio-button-group" data-filter-group="size">
-      <button class="button is-checked" data-filter="">any</button>
       <button class="button" data-filter=".small">small</button>
-      <button class="button" data-filter=".wide">wide</button>
-      <button class="button" data-filter=".big">big</button>
-      <button class="button" data-filter=".tall">tall</button>
+     
     </div>
   </div>
 
   <div class="ui-group">
-    <h3>Shape</h3>
+   
     <div class="button-group js-radio-button-group" data-filter-group="shape">
-      <button class="button is-checked" data-filter="">any</button>
+      
       <button class="button" data-filter=".round">round</button>
-      <button class="button" data-filter=".square">square</button>
+      
     </div>
   </div>
 

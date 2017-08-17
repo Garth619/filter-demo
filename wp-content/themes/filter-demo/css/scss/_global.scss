@@ -11,18 +11,15 @@ body {
   padding: 0.5em 1.0em;
   background: #EEE;
   border: none;
-  border-radius: 7px;
-  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
-  color: #222;
+	color: #222;
   font-family: sans-serif;
   font-size: 16px;
-  text-shadow: 0 1px white;
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .button:hover {
   background-color: #8CF;
-  text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+  
   color: #222;
 }
 
@@ -101,11 +98,11 @@ body {
 }
  
 .color-shape.round {
-  border-radius: 35px;
+  // border-radius: 35px;
 }
  
 .color-shape.big.round {
-  border-radius: 75px;
+  // border-radius: 75px;
 }
  
 .color-shape.red { background: red; }
