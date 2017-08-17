@@ -48,7 +48,7 @@ var filters = [];
 
 	 
 
-	$('#game_filters').on( 'click', 'button', function() {
+	$('#button_isotope_wrapper').on( 'click', 'button', function() {
 
 	  $(this).toggleClass("active");
 
@@ -86,21 +86,15 @@ var filters = [];
 
 	
 
-  $('#shuffle').click(function(){
-
-	$container.isotope({ sortBy : 'random' });
-
-	$container.isotope('updateSortData').isotope();
-
-  });
-
+ 
 
 
   $('#clearall').click(function(){
 
-  	$('#game_filters button').removeClass('active');
+  	$('#button_isotope_wrapper button').removeClass('active');
 
 	  $container.isotope({ filter: '*' });
+	  
 
 	  filters = [];
 

@@ -1,71 +1,190 @@
-<div id="game_filters" class="button-group">
 
 
-<button data-filter-name="5kwords" data-filter=".5kwords">5K+ Words</button>
-<button class="" data-filter-name="greatdesign" data-filter=".greatdesign">Great Design</button>
-<button class="" data-filter-name="25kvalue" data-filter=".25kvalue">$25K+ Value</button>
-<button class="" data-filter-name="20ktraffic" data-filter=".20ktraffic">20K+ Traffic</button>
-<button class="" data-filter-name="100lrd" data-filter=".100lrd">100+ LRDs</button>
-<button data-filter-name="interactive" data-filter=".interactive">Interactive</button>
-<button data-filter-name="greatux" data-filter=".greatux">Great UX</button>
-<button data-filter-name="hub" data-filter=".hub">Content Hub</button>
-</div>
-<button id="shuffle">Shuffle</button>
-<button id="clearall">Clear Filters</button>
+<div class="container">
 
 
-
-
-<div id="isotope" class="">
+	<div class="button_wrapper">
 	
+		<div id="button_isotope_wrapper" class="button-group">
+	
+	
+			<button data-filter-name="practiceareaone" data-filter=".practiceareaone">Practice Area One</button>
+			<button data-filter-name="practiceareatwo" data-filter=".practiceareatwo">Practice Area Two</button>
+			<button data-filter-name="practiceareathree" data-filter=".practiceareathree">Practice Area Three</button>
+			<button data-filter-name="practiceareafour" data-filter=".practiceareafour">Practice Area Four</button>
+			<button data-filter-name="practiceareafive" data-filter=".practiceareafive">Practice Area Five</button>
+			<button data-filter-name="practiceareasix" data-filter=".practiceareasix">Practice Area Six</button>
+			<button data-filter-name="practiceareaseven" data-filter=".practiceareaseven">Practice Area Seven</button>
+			<button data-filter-name="practiceareaeight" data-filter=".practiceareaeight">Practice Area Eight</button>
+	
+	
+		</div><!-- button_isotope_wrapper -->
+	
+	
+	
+		<button id="clearall">Clear Filters</button>
+	
+	
+	</div><!-- button_wrapper -->
+	
+	<div id="isotope">
+		
+	
+	<div class="box practiceareafour practiceareasix">
+	
+	
+	<h2>Lorem Ipsum One</h2>
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	</div><!-- post -->
+	
+	
+	<div class="box practiceareathree practiceareafour practiceareafive practiceareasix practiceareaseven">
+	<h2>Lorem Ipsum Two</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	</div><!-- post -->
+	
+	
+	<div class="box practiceareaone practiceareathree practiceareafour practiceareafive practiceareasix practiceareaseven">
+	
+	
+	<h2>Lorem Ipsum Three</h2>
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	
+	<div class="box practiceareasix practiceareaeight">
+	
+	<h2>Lorem Ipsum Four</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	
+	
+	<div class="box practiceareathree practiceareafour practiceareafive practiceareaseven practiceareaeight">
+	
+	
+	<h2>Lorem Ipsum Five</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	
+	<div class="box practiceareathree practiceareafour practiceareasix practiceareaeight">
+	
+	
+	<h2>Lorem Ipsum Six</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	
+	
+	<div class="box practiceareaone practiceareathree practiceareafive practiceareasix practiceareaeight">
+	
+	
+	<h2>Lorem Ipsum Seven</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	
+	
+	<div class="box practiceareaone practiceareatwo practiceareathree practiceareafive practiceareaseven practiceareaeight">
+	
+	
+	<h2>Lorem Ipsum Eight</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	<div class="box practiceareafive practiceareasix practiceareaseven practiceareaeight">
+	
+	
+	<h2>Lorem Ipsum Nine</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	<div class="box practiceareaone practiceareatwo practiceareathree practiceareafour practiceareafive practiceareasix">
+	
+	
+	<h2>Lorem Ipsum Ten</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	<div class="box practiceareaone practiceareatwo practiceareathree practiceareafour practiceareafive practiceareasix practiceareaseven">
+	
+	
+	<h2>Lorem Ipsum Eleven</h2>
+	
+	
+	<img src="http://via.placeholder.com/900x450"/>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>	
+	</div><!-- post -->
+	
+	
+	
+	
+	
+	</div><!-- isotope -->
 
-<div class="box 25kvalue 20ktraffic greatdesign 100lrd interactive greatux">
-<h3>Algebra Calculator</h3>
 
-
-<p class="info_desc">This algebra calculator is equipped to solve fractions, exponents, inequalities, and more. It’s seamless design makes it easy to input problems, which the calculator will solve step-by-step. Its simple, informative user experience has helped it attract 240,000+ users a month and generate 209 LRDs.</p>
-
-</div><!-- game_filters -->
-
-
-<div class="box  20ktraffic greatdesign 100lrd interactive greatux">
-<h3>Algebra Calculator</h3>
-
-
-<p class="info_desc">This algebra calculator is equipped to solve fractions, exponents, inequalities, and more. It’s seamless design makes it easy to input problems, which the calculator will solve step-by-step. Its simple, informative user experience has helped it attract 240,000+ users a month and generate 209 LRDs.</p>
-
-</div>
-
-
-<div class="box 25kvalue greatdesign 100lrd interactive greatux">
-<h3>Algebra Calculator</h3>
-
-
-<p class="info_desc">This algebra calculator is equipped to solve fractions, exponents, inequalities, and more. It’s seamless design makes it easy to input problems, which the calculator will solve step-by-step. Its simple, informative user experience has helped it attract 240,000+ users a month and generate 209 LRDs.</p>
-
-</div>
-
-
-<div class="box 25kvalue  greatdesign 100lrd  greatux">
-<h3>Algebra Calculator</h3>
-
-
-<p class="info_desc">This algebra calculator is equipped to solve fractions, exponents, inequalities, and more. It’s seamless design makes it easy to input problems, which the calculator will solve step-by-step. Its simple, informative user experience has helped it attract 240,000+ users a month and generate 209 LRDs.</p>
-
-</div>
-
-
-
-<div class="box 25kvalue  greatdesign  greatux">
-<h3>Algebra Calculator</h3>
-
-
-<p class="info_desc">This algebra calculator is equipped to solve fractions, exponents, inequalities, and more. It’s seamless design makes it easy to input problems, which the calculator will solve step-by-step. Its simple, informative user experience has helped it attract 240,000+ users a month and generate 209 LRDs.</p>
-
-</div>
-
-
-</div><!-- isotope -->
-
-
-
+</div><!-- container -->
