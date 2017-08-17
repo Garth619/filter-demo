@@ -1,149 +1,62 @@
-<div class="toolbar mb2 mt2">
-  <button class="btn fil-cat" href="" data-rel="all">All</button>
-  <button class="btn fil-cat" data-rel="web">Practice Area 1</button>
-  <button class="btn fil-cat" data-rel="flyers">Practice Area 2</button>
-  <button class="btn fil-cat" data-rel="bcards">Practice Area 3</button>
-</div> 
- 
-<div style="clear:both;"></div>   
-<div id="filter_container">
-  <div class="tile scale-anm web all">
-	  
-	  		<h2>Practice Area 1</h2>
-	  		
-	  		<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  		
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h1>Isotope - combination filters</h1>
+
+<div class="filters">
+
+  <div class="ui-group">
+    <h3>Color</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="color">
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".red">red</button>
+      <button class="button" data-filter=".blue">blue</button>
+      <button class="button" data-filter=".yellow">yellow</button>
+    </div>
   </div>
-  <div class="tile scale-anm bcards all">
-	  
-	  <h2>Practice Area 3</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <div class="ui-group">
+    <h3>Size</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="size">
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".small">small</button>
+      <button class="button" data-filter=".wide">wide</button>
+      <button class="button" data-filter=".big">big</button>
+      <button class="button" data-filter=".tall">tall</button>
+    </div>
   </div>
-  <div class="tile scale-anm web all">
-	  
-	  <h2>Practice Area 1</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <div class="ui-group">
+    <h3>Shape</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="shape">
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".round">round</button>
+      <button class="button" data-filter=".square">square</button>
+    </div>
   </div>
-  <div class="tile scale-anm web all">
-	  
-	  	<h2>Practice Area 1</h2>
-	  	
-	  	<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  	
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm flyers all">
-	  
-	  		<h2>Practice Area 2</h2>
-	  		
-	  		<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  	
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm bcards all">
-	  
-	  <h2>Practice Area 3</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm flyers all">
-	  
-	  <h2>Practice Area 2</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm flyers all">
-	  
-	  <h2>Practice Area 2</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm web all">
-	  
-	  <h2>Practice Area 1</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm flyers all">
-	  
-	  <h2>Practice Area 2</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm web all">
-	  
-	  <h2>Practice Area 1</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm bcards all">
-	  
-	  
-	  <h2>Practice Area 3</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm web all">
-	  
-	  <h2>Practice Area 1</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm bcards all">
-	  
-	  <h2>Practice Area 3</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-  <div class="tile scale-anm web all">
-	  
-	  <h2>Practice Area 1</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div> 
-  <div class="tile scale-anm web all">
-	  
-	  <h2>Practice Area 1</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	  
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div> 
-  <div class="tile scale-anm bcards all"> 
-	  
-	  <h2>Practice Area 3</h2>
-	  
-	  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=300&h=290"/>
-	      
-           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
+
 </div>
 
-<div style="clear:both;"></div>   
+<div class="grid">
+  <div class="color-shape small round red"></div>
+  <div class="color-shape small round blue"></div>
+  <div class="color-shape small round yellow"></div>
+  <div class="color-shape small square red"></div>
+  <div class="color-shape small square blue"></div>
+  <div class="color-shape small square yellow"></div>
+  <div class="color-shape wide round red"></div>
+  <div class="color-shape wide round blue"></div>
+  <div class="color-shape wide round yellow"></div>
+  <div class="color-shape wide square red"></div>
+  <div class="color-shape wide square blue"></div>
+  <div class="color-shape wide square yellow"></div>
+  <div class="color-shape big round red"></div>
+  <div class="color-shape big round blue"></div>
+  <div class="color-shape big round yellow"></div>
+  <div class="color-shape big square red"></div>
+  <div class="color-shape big square blue"></div>
+  <div class="color-shape big square yellow"></div>
+  <div class="color-shape tall round red"></div>
+  <div class="color-shape tall round blue"></div>
+  <div class="color-shape tall round yellow"></div>
+  <div class="color-shape tall square red"></div>
+  <div class="color-shape tall square blue"></div>
+  <div class="color-shape tall square yellow"></div>
+</div>
