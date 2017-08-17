@@ -1,0 +1,49 @@
+body {
+	font-family: "helvetica";
+}
+
+.toolbar {
+	margin: 35px auto;
+	display: block;
+	width:100%;
+	max-width:700px;
+	text-align: center;
+	button {
+		background:#000;
+		border:none;
+		color:#fff;
+		font-size:14px;
+		text-transform: uppercase;
+		padding:8px 20px;
+		margin-bottom:4px;
+		font-weight: bold;
+		letter-spacing: 1.5px;
+		transition: all .2s ease-in-out;
+		cursor: pointer;
+		&:hover {
+			background: #ff3600;
+		}
+	}
+}
+
+
+
+#filter_container {
+	width:100%;
+	max-width:700px;
+	margin:0 auto;
+	padding:0 10px;
+	div {
+		margin:45px 0;
+		h2 {
+			font-size:25px;
+			margin-bottom:20px;
+		}
+		img {
+			display: block;
+			margin-bottom: 20px;
+			max-width: 100%;
+			height:auto;
+		}
+	}
+}

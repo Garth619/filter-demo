@@ -40,6 +40,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/css\/scss\/_global.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/css\/scss\/_global.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/css\/scss\/_reset.scss": {
 		"aP": 0,
 		"bl": 0,
