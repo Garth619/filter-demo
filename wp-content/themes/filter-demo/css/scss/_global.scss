@@ -30,6 +30,12 @@ body {
 			background:#ed1d24;
 		}
 	}
+	button#clearall {
+		background:grey;
+		&:hover {
+			background:#ed1d24;
+		}
+	}
 	button.active {
 		background:#ed1d24;
 	}
