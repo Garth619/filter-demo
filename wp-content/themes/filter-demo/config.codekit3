@@ -171,6 +171,12 @@
 		"oAP": "\/loop.php",
 		"oF": 0
 		},
+	"\/page-blog.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/page-blog.php",
+		"oF": 0
+		},
 	"\/page-home.php": {
 		"ft": 8192,
 		"oA": 2,
