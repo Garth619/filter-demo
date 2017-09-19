@@ -18,31 +18,18 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 
-<div id="box" class="<?php // $posttags = get_the_tags();if ($posttags) {foreach($posttags as $tag) {echo $tag->slug . ' ';}}?>">
+	<div id="box" class="garrett <?php // fluxtabs_classes();?> <?php // $posttags = get_the_tags();if ($posttags) {foreach($posttags as $tag) {echo $tag->slug . ' ';}}?>">
 
 	
-	<h2><?php the_title();?></h2>
-	<?php the_content();?>
+		<h2><?php the_title();?></h2>
+	
+		<?php the_content();?>
 			
-	<?php edit_post_link( __( 'Edit'), '', '' ); ?>
+		<?php edit_post_link( __( 'Edit'), '', '' ); ?>
 	
 	</div><!-- post -->
 	
 	
 	<?php endwhile; // end of loop ?>
-
-<?php endif; ?>
-
-
-
-<?php if (  $wp_query->max_num_pages > 1 ) : ?>
-	
-	<div id="nav-below" class="navigation">
-		
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts') ); ?></div>
-			
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>') ); ?></div>
-	
-	</div><!-- #nav-below -->
 
 <?php endif; ?>
