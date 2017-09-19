@@ -45,29 +45,10 @@ function my_custom_post_type_three() {
 
 
 
-if ( ! function_exists( 'check_for_class' ) ) {
+if ( ! function_exists( 'fluxtabs_classes' ) ) {
 	
-	
-	//function check_for_class($myclass) {
 		
-		//if ( ! is_admin() && is_main_query() ) {
-        
-        // do something
-        
-    
-    //}
-		
-		//return $myclass;
-		
-	// }
-	
-	
-	// add_filter( '', '' );
-	
-	
-	
-        
-    function fluxtabs_classes($fluxtags) {
+		function fluxtabs_classes() {
 	    
 	    if ( ! is_admin() && in_the_loop() ) {
 		
@@ -75,24 +56,17 @@ if ( ! function_exists( 'check_for_class' ) ) {
 				
 				if ($posttags) {
 					
+					echo 'flux-post ';
+					
 					foreach($posttags as $tag) {
 					
-						echo $tag->name . ' '; 
-  
+						 echo $tag->slug . ' '; 
+  				
   				}
 				}
-		
 			}
-			
-			
-        
-  	}
+		}
   	
-  	add_filter( 'the_title', 'fluxtabs_classes' );
-	
-	
-	
-
-
+		add_action( 'fluxtabs_classes', 'fluxtabs_classes' );
 }
 

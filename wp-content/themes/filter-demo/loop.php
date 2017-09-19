@@ -18,7 +18,7 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 
-	<div id="box" class="garrett <?php // fluxtabs_classes();?> <?php // $posttags = get_the_tags();if ($posttags) {foreach($posttags as $tag) {echo $tag->slug . ' ';}}?>">
+	<div id="box" class="<?php // fluxtabs_classes();?><?php do_action( 'fluxtabs_classes' );?>">
 
 	
 		<h2><?php the_title();?></h2>
@@ -26,6 +26,7 @@
 		<?php the_content();?>
 			
 		<?php edit_post_link( __( 'Edit'), '', '' ); ?>
+	
 	
 	</div><!-- post -->
 	
