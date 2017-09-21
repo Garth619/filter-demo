@@ -54,26 +54,77 @@ function fluxtabs_activation() {
 
 
 
+// create shortcode to list all clothes which come in blue
+add_shortcode( 'list-posts-basic', 'rmcc_post_listing_shortcode1' );
+function rmcc_post_listing_shortcode1( $atts ) {
+    ob_start();
+    $query = new WP_Query( array(
+        'post_type' => 'post',
+        
+        'posts_per_page' => -1,
+        'order' => 'ASC',
+        
+    ) );
+    if ( $query->have_posts() ) { ?>
+        <div class="">
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+            <div id="post-<?php the_ID(); ?>" class="<?php do_action( 'fluxtabs_post_id' );?><?php do_action( 'fluxtabs_classes' );?>">
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </div>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+        </div>
+    <?php $myvariable = ob_get_clean();
+    return $myvariable;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+if ( ! function_exists( 'flux_tabs_blog' ) ) {
+
 function flux_tabs_blog($atts, $content = null) {
         extract(shortcode_atts(array(
-                "num" => '200',
-                "cat" => ''
+           "num" => '200',
+           "cat" => ''
         ), $atts));
+        
         global $post;
+        
         $myposts = get_posts('numberposts='.$num.'&order=DESC&orderby=post_date&category='.$cat);
-        $retour='<ul>';
+        
+        //$posttags = get_the_tags();
+        
+        $flux_output='<ul>';
+        
         foreach($myposts as $post) :
-                setup_postdata($post);
-             $retour.='<li><a href="'.get_permalink().'">'.the_title("","",false).'</a></li>';
+           
+           setup_postdata($post);
+             
+           $flux_output.='<div><a href="'.get_permalink().'">'.the_title("","",false).'</a></div>';
+        
         endforeach;
-        $retour.='</ul> ';
-        return $retour;
+        
+        $flux_output.='</ul> ';
+        
+        return $flux_output;
 }
 
 
 add_shortcode("flux_list", "flux_tabs_blog");
 
-
+}
+*/
 
 
 
@@ -144,11 +195,14 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 	    
 	    if ( ! is_admin() && in_the_loop() ) {
 		
+				
+				$fluxpost = get_the_ID();
+				
+				echo 'flux-post flux-post-' . $fluxpost . ' ';
+				
 				$posttags = get_the_tags();
 				
 				if ($posttags) {
-					
-					echo 'flux-post ';
 					
 					foreach($posttags as $tag) {
 					
@@ -165,6 +219,7 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 
 
 
+/*
 if ( ! function_exists( 'fluxtabs_post_id' ) ) {
 	
 		
@@ -183,6 +238,7 @@ if ( ! function_exists( 'fluxtabs_post_id' ) ) {
   	
 		add_action( 'fluxtabs_post_id', 'fluxtabs_post_id' );
 }
+*/
 
 
 
