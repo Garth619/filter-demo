@@ -23,6 +23,8 @@ function fluxtabs_activation() {
 
 }
 
+// Register Custom Post Type
+
 if ( ! function_exists( 'flux_tabs' ) ) {
   
   function flux_tabs() {    
@@ -46,7 +48,7 @@ if ( ! function_exists( 'flux_tabs' ) ) {
 	
 }
 	
-// Flux Tags
+// Flux Template Tags (Do Action) 
 
 if ( ! function_exists( 'fluxtabs_classes' ) ) {
 	
@@ -80,33 +82,30 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 // Blog Shortcode
 
 
+if ( ! function_exists( 'flux_posts_shortcode' ) ) {
+
+
 add_shortcode( 'flux-posts', 'flux_posts_shortcode' );
 
-function flux_posts_shortcode( $atts ) {
-    ob_start();
-    $query = new WP_Query( array(
-      'post_type' => 'post',
-      'posts_per_page' => -1,
-    ) );
+function flux_posts_shortcode( $atts ) { ?>
     
-    if ( $query->have_posts() ) { ?>
     
-    		<div class="button_wrapper">
+    <div class="button_wrapper">
 	
-					<div id="button_isotope_wrapper" class="button-group">
+		<div id="button_isotope_wrapper" class="button-group">
+	
+			
+	
+			<button data-filter-name="tag-practice-area-1" data-filter=".tag-practice-area-1">Practice Area One</button>
+			<button data-filter-name="tag-practice-area-2" data-filter=".tag-practice-area-2">Practice Area Two</button>
+			<button data-filter-name="tag-practice-area-3" data-filter=".tag-practice-area-3">Practice Area Three</button>
+			<button data-filter-name="tag-practice-area-4" data-filter=".tag-practice-area-4">Practice Area Four</button>
+			<button data-filter-name="tag-practice-area-5" data-filter=".tag-practice-area-5">Practice Area Five</button>
+			<button data-filter-name="tag-practice-area-6" data-filter=".tag-practice-area-6">Practice Area Six</button>
+			
 	
 	
-					<button data-filter-name="practiceareaone" data-filter=".practiceareaone">Practice Area One</button>
-					<button data-filter-name="practiceareatwo" data-filter=".practiceareatwo">Practice Area Two</button>
-					<button data-filter-name="practiceareathree" data-filter=".practiceareathree">Practice Area Three</button>
-					<button data-filter-name="practiceareafour" data-filter=".practiceareafour">Practice Area Four</button>
-					<button data-filter-name="practiceareafive" data-filter=".practiceareafive">Practice Area Five</button>
-					<button data-filter-name="practiceareasix" data-filter=".practiceareasix">Practice Area Six</button>
-					<button data-filter-name="practiceareaseven" data-filter=".practiceareaseven">Practice Area Seven</button>
-					<button data-filter-name="practiceareaeight" data-filter=".practiceareaeight">Practice Area Eight</button>
-	
-	
-					</div><!-- button_isotope_wrapper -->
+		</div><!-- button_isotope_wrapper -->
 	
 	
 	
@@ -114,8 +113,22 @@ function flux_posts_shortcode( $atts ) {
 	
 	
 	</div><!-- button_wrapper -->
+    
+    
+    <?php ob_start();
+    
+    
         
-        <div id="isotope">
+    // Flux Posts
+    
+    $query = new WP_Query( array(
+      'post_type' => 'post',
+      'posts_per_page' => -1,
+    ) );
+    
+    if ( $query->have_posts() ) { ?>
+    
+    		<div id="isotope">
             
             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
             
@@ -124,7 +137,7 @@ function flux_posts_shortcode( $atts ) {
                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                
                <?php the_content();?>
-            
+               
             </div>
             
             <?php endwhile;
@@ -138,7 +151,20 @@ function flux_posts_shortcode( $atts ) {
     }
 }
 
+}
 
+
+
+// JS
+
+
+function flux_js() {   
+    
+	
+	wp_enqueue_script( 'flux_script', plugin_dir_url( __FILE__ ) . 'js/flux-js-min.js', array('jquery'), '1.0', true );}
+
+
+add_action('wp_enqueue_scripts', 'flux_js');
 
 
 /*
