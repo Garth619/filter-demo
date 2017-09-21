@@ -4576,6 +4576,29 @@
 		"oAP": "\/wp-content\/plugins\/akismet\/wrapper.php",
 		"oF": 0
 		},
+	"\/wp-content\/plugins\/fluxtabs\/css\/style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/css\/style-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/plugins\/fluxtabs\/css\/style.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/css\/style.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"\/wp-content\/plugins\/fluxtabs\/fluxtabs.php": {
 		"ft": 8192,
 		"oA": 2,

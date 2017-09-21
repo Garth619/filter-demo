@@ -85,28 +85,33 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 if ( ! function_exists( 'flux_posts_shortcode' ) ) {
 
 
-add_shortcode( 'flux-posts', 'flux_posts_shortcode' );
+add_shortcode( 'flux-blog-posts', 'flux_posts_shortcode' );
 
 function flux_posts_shortcode( $atts ) { ?>
     
-    
-    <div class="button_wrapper">
+  
+  
+  <div class="button_wrapper">
 	
 		<div id="button_isotope_wrapper" class="button-group">
 	
+			<?php $args = array(
+				'type' => 'post',
+				'orderby' => 'name',
+				'order' => 'ASC'
+			);
+
+			$buttontags = get_tags($args);
+
+			foreach($buttontags as $buttontag) { 
+				
+				
+			echo '<button data-filter-name="tag-'.$buttontag->slug.'" data-filter=".tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
 			
-	
-			<button data-filter-name="tag-practice-area-1" data-filter=".tag-practice-area-1">Practice Area One</button>
-			<button data-filter-name="tag-practice-area-2" data-filter=".tag-practice-area-2">Practice Area Two</button>
-			<button data-filter-name="tag-practice-area-3" data-filter=".tag-practice-area-3">Practice Area Three</button>
-			<button data-filter-name="tag-practice-area-4" data-filter=".tag-practice-area-4">Practice Area Four</button>
-			<button data-filter-name="tag-practice-area-5" data-filter=".tag-practice-area-5">Practice Area Five</button>
-			<button data-filter-name="tag-practice-area-6" data-filter=".tag-practice-area-6">Practice Area Six</button>
 			
-	
+			} ?>
 	
 		</div><!-- button_isotope_wrapper -->
-	
 	
 	
 		<button id="clearall">Clear Filters</button>
@@ -165,6 +170,27 @@ function flux_js() {
 
 
 add_action('wp_enqueue_scripts', 'flux_js');
+
+
+
+// CSS
+
+
+
+add_action( 'wp_head', 'internal_css_print' );
+
+function internal_css_print() {
+  
+  echo '<style type="text/css">
+  
+  body{font-family:"helvetica"}.container{width:100%;max-width:700px;margin:50px auto;padding:0 4px}.button_wrapper{text-align:left;margin-bottom:35px}.button_wrapper button{background:#000;color:#fff;border:none;text-transform:uppercase;font-weight:bold;font-size:14px;padding:8px 20px;margin-bottom:4px;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px}.button_wrapper button:hover{background:#ed1d24}.button_wrapper button#clearall{background:grey}.button_wrapper button#clearall:hover{background:#ed1d24}.button_wrapper button.active{background:#ed1d24}.flux-post{margin-bottom:25px;line-height:22px}.flux-post img{display:block;margin-top:20px;margin-bottom:30px;max-width:100%;height:auto}.flux-post h2{margin-bottom:9px;font-size:20px}.flux-post p{margin-bottom:25px}
+
+</style>';
+
+
+}
+
+
 
 
 /*
