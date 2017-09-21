@@ -18,22 +18,113 @@ register_activation_hook( __FILE__, 'fluxtabs_activation' );
 
 function fluxtabs_activation() {
 			
-	// my_custom_post_type_three();
-	// flush_rewrite_rules();
+	 flux_tabs();
+	 flush_rewrite_rules();
 
 }
 
-// add_action( 'init', 'my_custom_post_type_three' );
+
+ if ( ! function_exists( 'flux_tabs' ) ) {
+  
+  function flux_tabs() {    
+    	$args = array(    
+        	'label' => __('Practice Areas'),    
+        	'singular_label' => __('Practice Area'),    
+        	'public' => true,    
+        	'show_ui' => true,
+        	'has_archive' => true,	 
+        	'capability_type' => 'post',    
+        	'hierarchical' => false,    
+        	'rewrite' => true,    
+        	'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
+       	);    
+   	 
+    	register_post_type( 'flux_tabs' , $args );    
+	}  
+	
+	
+	add_action('init', 'flux_tabs');
+	
+}
+	
+	
+	
+// Shortcode
+
+
+
+
+function flux_tabs_blog($atts, $content = null) {
+        extract(shortcode_atts(array(
+                "num" => '200',
+                "cat" => ''
+        ), $atts));
+        global $post;
+        $myposts = get_posts('numberposts='.$num.'&order=DESC&orderby=post_date&category='.$cat);
+        $retour='<ul>';
+        foreach($myposts as $post) :
+                setup_postdata($post);
+             $retour.='<li><a href="'.get_permalink().'">'.the_title("","",false).'</a></li>';
+        endforeach;
+        $retour.='</ul> ';
+        return $retour;
+}
+
+
+add_shortcode("flux_list", "flux_tabs_blog");
+
+
+
+
 
 /*
-function my_custom_post_type_three() {
-    $args = array(
-      'public' => true,
-      'label'  => 'Board Games Three'
-    );
-    register_post_type( 'boardgamesthree', $args );
+function sc_liste($atts, $content = null) {
+        extract(shortcode_atts(array(
+                "num" => '',
+                "cat" => ''
+        ), $atts));
+        global $post;
+        $myposts = get_posts('numberposts='.$num.'&order=DESC&orderby=post_date&category='.$cat);
+        $retour='<ul>';
+        foreach($myposts as $post) :
+                setup_postdata($post);
+             $retour.='<li><a href="'.get_permalink().'">'.the_title("","",false).'</a></li>';
+        endforeach;
+        $retour.='</ul> ';
+        return $retour;
 }
+
+
+add_shortcode("list", "sc_liste");
 */
+
+
+
+
+
+
+
+	
+	
+/*
+if ( ! function_exists( 'flux_cpt_shortcode' ) ) {
+
+
+function flux_cpt_shortcode($atts, $content = null) {
+	extract(shortcode_atts(array(
+		"post" => ''
+		
+	), $atts));
+	return '<video id="'.$id.'" class="gif_replacement_video" src="'.$src.'" width="'.$width.'" autoplay loop muted playsinline autobuffer></video>';
+}
+
+} 
+*/    
+
+
+
+
+
 
 // Functions that need to be cleaned up upon deactivation
 
