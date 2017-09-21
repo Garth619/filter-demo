@@ -47,7 +47,7 @@ if ( ! function_exists( 'flux_tabs' ) ) {
 	
 	
 	
-	// register_taxonomy("project-type", array("flux_tabs"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true));
+	 // register_taxonomy("project-type", array("flux_tabs"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true));
 	
 	
 	
