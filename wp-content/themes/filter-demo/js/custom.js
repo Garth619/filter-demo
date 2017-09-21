@@ -32,7 +32,7 @@ var $container = $('#isotope').imagesLoaded( function() {
 
 	$container.isotope({
 
-	  itemSelector: '.box',
+	  itemSelector: '.flux-post',
 
 	});
 

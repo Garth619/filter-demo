@@ -23,8 +23,7 @@ function fluxtabs_activation() {
 
 }
 
-
- if ( ! function_exists( 'flux_tabs' ) ) {
+if ( ! function_exists( 'flux_tabs' ) ) {
   
   function flux_tabs() {    
     	$args = array(    
@@ -47,45 +46,97 @@ function fluxtabs_activation() {
 	
 }
 	
+// Flux Tags
+
+if ( ! function_exists( 'fluxtabs_classes' ) ) {
 	
-	
-// Shortcode
-
-
-
-
-// create shortcode to list all clothes which come in blue
-add_shortcode( 'list-posts-basic', 'rmcc_post_listing_shortcode1' );
-function rmcc_post_listing_shortcode1( $atts ) {
-    ob_start();
-    $query = new WP_Query( array(
-        'post_type' => 'post',
-        
-        'posts_per_page' => -1,
-        'order' => 'ASC',
-        
-    ) );
-    if ( $query->have_posts() ) { ?>
-        <div class="">
-            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-            <div id="post-<?php the_ID(); ?>" class="<?php do_action( 'fluxtabs_post_id' );?><?php do_action( 'fluxtabs_classes' );?>">
-                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-            </div>
-            <?php endwhile;
-            wp_reset_postdata(); ?>
-        </div>
-    <?php $myvariable = ob_get_clean();
-    return $myvariable;
-    }
+		
+		function fluxtabs_classes() {
+	    
+	    if ( ! is_admin() && in_the_loop() ) {
+		
+				
+				$fluxpost = get_the_ID();
+				
+				echo 'flux-post flux-post-' . $fluxpost . ' ';
+				
+				$posttags = get_the_tags();
+				
+				if ($posttags) {
+					
+					foreach($posttags as $tag) {
+					
+						 echo 'tag-' . $tag->slug . ' '; 
+  				
+  				}
+				}
+			}
+		}
+  	
+		add_action( 'fluxtabs_classes', 'fluxtabs_classes' );
 }
 
 
+// Blog Shortcode
 
 
+add_shortcode( 'flux-posts', 'flux_posts_shortcode' );
 
-
-
-
+function flux_posts_shortcode( $atts ) {
+    ob_start();
+    $query = new WP_Query( array(
+      'post_type' => 'post',
+      'posts_per_page' => -1,
+    ) );
+    
+    if ( $query->have_posts() ) { ?>
+    
+    		<div class="button_wrapper">
+	
+					<div id="button_isotope_wrapper" class="button-group">
+	
+	
+					<button data-filter-name="practiceareaone" data-filter=".practiceareaone">Practice Area One</button>
+					<button data-filter-name="practiceareatwo" data-filter=".practiceareatwo">Practice Area Two</button>
+					<button data-filter-name="practiceareathree" data-filter=".practiceareathree">Practice Area Three</button>
+					<button data-filter-name="practiceareafour" data-filter=".practiceareafour">Practice Area Four</button>
+					<button data-filter-name="practiceareafive" data-filter=".practiceareafive">Practice Area Five</button>
+					<button data-filter-name="practiceareasix" data-filter=".practiceareasix">Practice Area Six</button>
+					<button data-filter-name="practiceareaseven" data-filter=".practiceareaseven">Practice Area Seven</button>
+					<button data-filter-name="practiceareaeight" data-filter=".practiceareaeight">Practice Area Eight</button>
+	
+	
+					</div><!-- button_isotope_wrapper -->
+	
+	
+	
+		<button id="clearall">Clear Filters</button>
+	
+	
+	</div><!-- button_wrapper -->
+        
+        <div id="isotope">
+            
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+            
+            <div id="post-<?php the_ID(); ?>" <?php post_class('flux-post');?>>
+               
+               <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+               
+               <?php the_content();?>
+            
+            </div>
+            
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+        
+        </div><!-- isotope -->
+    
+    <?php $myvariable = ob_get_clean();
+    
+    return $myvariable;
+    }
+}
 
 
 
@@ -183,38 +234,6 @@ function flux_cpt_shortcode($atts, $content = null) {
 
 
 
-// Template Tags
-
-
-
-
-if ( ! function_exists( 'fluxtabs_classes' ) ) {
-	
-		
-		function fluxtabs_classes() {
-	    
-	    if ( ! is_admin() && in_the_loop() ) {
-		
-				
-				$fluxpost = get_the_ID();
-				
-				echo 'flux-post flux-post-' . $fluxpost . ' ';
-				
-				$posttags = get_the_tags();
-				
-				if ($posttags) {
-					
-					foreach($posttags as $tag) {
-					
-						 echo 'tag-' . $tag->slug . ' '; 
-  				
-  				}
-				}
-			}
-		}
-  	
-		add_action( 'fluxtabs_classes', 'fluxtabs_classes' );
-}
 
 
 

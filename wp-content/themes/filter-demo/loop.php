@@ -18,7 +18,7 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 
-	<div id="box" <?php post_class('flux-post');?>>
+	<div id="box">
 
 	
 		<h2><?php the_title();?></h2>
