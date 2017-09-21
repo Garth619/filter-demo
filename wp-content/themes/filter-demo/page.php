@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-
+<div class="container">
 
 <?php if ( ! have_posts() ) : ?>
 	
@@ -27,6 +27,6 @@
 
 <?php endif; ?>
 
-
+</div><!-- container -->
 
 <?php get_footer(); ?>

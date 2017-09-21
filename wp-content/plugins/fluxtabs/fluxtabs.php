@@ -27,6 +27,8 @@ function fluxtabs_activation() {
 
 if ( ! function_exists( 'flux_tabs' ) ) {
   
+  add_action('init', 'flux_tabs');
+  
   function flux_tabs() {    
     	$args = array(    
         	'label' => __('Practice Areas'),    
@@ -44,7 +46,12 @@ if ( ! function_exists( 'flux_tabs' ) ) {
 	}  
 	
 	
-	add_action('init', 'flux_tabs');
+	
+	// register_taxonomy("project-type", array("flux_tabs"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true));
+	
+	
+	
+	
 	
 }
 	
@@ -139,7 +146,7 @@ function flux_posts_shortcode( $atts ) { ?>
             
             <div id="post-<?php the_ID(); ?>" <?php post_class('flux-post');?>>
                
-               <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+               <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                
                <?php the_content();?>
                
@@ -183,7 +190,8 @@ function internal_css_print() {
   
   echo '<style type="text/css">
   
-  body{font-family:"helvetica"}.container{width:100%;max-width:700px;margin:50px auto;padding:0 4px}.button_wrapper{text-align:left;margin-bottom:35px}.button_wrapper button{background:#000;color:#fff;border:none;text-transform:uppercase;font-weight:bold;font-size:14px;padding:8px 20px;margin-bottom:4px;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px}.button_wrapper button:hover{background:#ed1d24}.button_wrapper button#clearall{background:grey}.button_wrapper button#clearall:hover{background:#ed1d24}.button_wrapper button.active{background:#ed1d24}.flux-post{margin-bottom:25px;line-height:22px}.flux-post img{display:block;margin-top:20px;margin-bottom:30px;max-width:100%;height:auto}.flux-post h2{margin-bottom:9px;font-size:20px}.flux-post p{margin-bottom:25px}
+.button_wrapper{text-align:left;margin-bottom:35px}.button_wrapper button{background:#000;color:#fff;border:none;text-transform:uppercase;font-weight:bold;font-family:helvetica;font-size:14px;padding:8px 20px;margin-bottom:4px;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px}.button_wrapper button:hover{background:#ed1d24}.button_wrapper button#clearall{background:grey}.button_wrapper button#clearall:hover{background:#ed1d24}.button_wrapper button.active{background:#ed1d24}
+
 
 </style>';
 

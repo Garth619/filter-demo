@@ -11,36 +11,6 @@ body {
 }
 
 
-.button_wrapper {
-	text-align: left;
-	margin-bottom: 35px;
-	button {
-		background:#000;
-		color:#fff;
-		border:none;
-		text-transform: uppercase;
-		font-weight: bold;
-		font-size: 14px;
-		padding:8px 20px;
-		margin-bottom: 4px;
-		transition: all .2s ease-in-out;
-		cursor: pointer;
-		&:hover {
-			background:#ed1d24;
-		}
-	}
-	button#clearall {
-		background:grey;
-		&:hover {
-			background:#ed1d24;
-		}
-	}
-	button.active {
-		background:#ed1d24;
-	}
-}
-
-
 
 .flux-post {
 	margin-bottom:25px;
