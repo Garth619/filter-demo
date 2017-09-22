@@ -20,6 +20,7 @@ function fluxtabs_activation() {
 			
 	 flux_tabs();
 	 flush_rewrite_rules();
+	 
 
 }
 
@@ -31,8 +32,8 @@ if ( ! function_exists( 'flux_tabs' ) ) {
   
   function flux_tabs() {    
     	$args = array(    
-        	'label' => __('Practice Areas'),    
-        	'singular_label' => __('Practice Area'),    
+        	'label' => __('Flux Tabs'),    
+        	'singular_label' => __('Flux Tab'),    
         	'public' => true,    
         	'show_ui' => true,
         	'has_archive' => true,	 
@@ -42,17 +43,36 @@ if ( ! function_exists( 'flux_tabs' ) ) {
         	'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
        	);    
    	 
-    	register_post_type( 'flux_tabs' , $args );    
-	}  
-	
-	
-	
-	 // register_taxonomy("project-type", array("flux_tabs"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true));
-	
-	
-	
-	
-	
+    	register_post_type( 'flux_tabs' , $args );
+    	
+    	// Flux Tab Tags
+    	
+    	register_taxonomy ('flux-tab-tag',array('flux_tabs'),
+				array (
+        	'hierarchical' => false,
+					'labels' => array (
+            'name' => _x( 'Flux Tab Tags', 'taxonomy general name' ),
+            'singular_name' => _x( 'Flux Tab Tag', 'taxonomy singular name' ),
+            'search_items' =>  __( 'Search Flux Tab Tags' ),
+            'all_items' => __( 'All Flux Tab Tags' ),
+            'edit_item' => __( 'Edit Flux Tab Tag' ), 
+            'update_item' => __( 'Update Flux Tab Tag' ),
+            'add_new_item' => __( 'Add New Flux Tab Tag' ),
+            'new_item_name' => __( 'New Flux Tab Tag Name' ),
+            'menu_name' => __( 'Flux Tab Tags' ),
+        ),
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'flux-tab-tag', 'with_front' => true),
+				)
+			);
+    } 
+    
+    
+    // register_taxonomy("project-type", array("portfolio"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true)); 
+    
+    
+     
 }
 	
 // Flux Template Tags (Do Action) 
@@ -103,8 +123,8 @@ function flux_posts_shortcode( $atts ) { ?>
 		<div id="button_isotope_wrapper" class="button-group">
 	
 			<?php $args = array(
-				'type' => 'post',
-				'orderby' => 'name',
+				'post_type' => 'post',
+				//'orderby' => 'name',
 				'order' => 'ASC'
 			);
 
@@ -164,6 +184,91 @@ function flux_posts_shortcode( $atts ) { ?>
 }
 
 }
+
+
+
+
+
+// Custom Post Type
+
+
+
+if ( ! function_exists( 'flux_custom_posts_shortcode' ) ) {
+
+
+add_shortcode( 'flux-custom-posts', 'flux_custom_posts_shortcode' );
+
+function flux_custom_posts_shortcode( $atts ) { ?>
+    
+  <div class="button_wrapper">
+	
+		<div id="button_isotope_wrapper" class="button-group">
+	
+			<?php $args = array(
+				'post_type' => 'flux_tabs',
+				'order' => 'ASC',
+			);
+			
+			
+
+			$buttontags = get_terms('flux-tab-tag',$args);
+
+			foreach($buttontags as $buttontag) { 
+				
+				
+			echo '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+			
+			
+			} ?>
+	
+		</div><!-- button_isotope_wrapper -->
+	
+	
+		<button id="clearall">Clear Filters</button>
+	
+	
+	</div><!-- button_wrapper -->
+    
+    
+    <?php ob_start();
+    
+    
+        
+    // Flux Posts
+    
+    $query = new WP_Query( array(
+      'post_type' => 'flux_tabs',
+      'posts_per_page' => -1,
+    ) );
+    
+    if ( $query->have_posts() ) { ?>
+    
+    		<div id="isotope">
+            
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+            
+            <div id="post-<?php the_ID(); ?>" <?php post_class('flux-post');?>>
+               
+               <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+               
+               <?php the_content();?>
+               
+            </div>
+            
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+        
+        </div><!-- isotope -->
+    
+    <?php $myvariable = ob_get_clean();
+    
+    return $myvariable;
+    }
+}
+
+}
+
+
 
 
 
