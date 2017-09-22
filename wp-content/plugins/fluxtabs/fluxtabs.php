@@ -69,11 +69,7 @@ if ( ! function_exists( 'flux_tabs' ) ) {
     } 
     
     
-    // register_taxonomy("project-type", array("portfolio"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true)); 
-    
-    
-     
-}
+ }
 	
 // Flux Template Tags (Do Action) 
 
@@ -184,9 +180,6 @@ function flux_posts_shortcode( $atts ) { ?>
 }
 
 }
-
-
-
 
 
 // Custom Post Type
@@ -306,91 +299,6 @@ function internal_css_print() {
 
 
 
-/*
-if ( ! function_exists( 'flux_tabs_blog' ) ) {
-
-function flux_tabs_blog($atts, $content = null) {
-        extract(shortcode_atts(array(
-           "num" => '200',
-           "cat" => ''
-        ), $atts));
-        
-        global $post;
-        
-        $myposts = get_posts('numberposts='.$num.'&order=DESC&orderby=post_date&category='.$cat);
-        
-        //$posttags = get_the_tags();
-        
-        $flux_output='<ul>';
-        
-        foreach($myposts as $post) :
-           
-           setup_postdata($post);
-             
-           $flux_output.='<div><a href="'.get_permalink().'">'.the_title("","",false).'</a></div>';
-        
-        endforeach;
-        
-        $flux_output.='</ul> ';
-        
-        return $flux_output;
-}
-
-
-add_shortcode("flux_list", "flux_tabs_blog");
-
-}
-*/
-
-
-
-/*
-function sc_liste($atts, $content = null) {
-        extract(shortcode_atts(array(
-                "num" => '',
-                "cat" => ''
-        ), $atts));
-        global $post;
-        $myposts = get_posts('numberposts='.$num.'&order=DESC&orderby=post_date&category='.$cat);
-        $retour='<ul>';
-        foreach($myposts as $post) :
-                setup_postdata($post);
-             $retour.='<li><a href="'.get_permalink().'">'.the_title("","",false).'</a></li>';
-        endforeach;
-        $retour.='</ul> ';
-        return $retour;
-}
-
-
-add_shortcode("list", "sc_liste");
-*/
-
-
-
-
-
-
-
-	
-	
-/*
-if ( ! function_exists( 'flux_cpt_shortcode' ) ) {
-
-
-function flux_cpt_shortcode($atts, $content = null) {
-	extract(shortcode_atts(array(
-		"post" => ''
-		
-	), $atts));
-	return '<video id="'.$id.'" class="gif_replacement_video" src="'.$src.'" width="'.$width.'" autoplay loop muted playsinline autobuffer></video>';
-}
-
-} 
-*/    
-
-
-
-
 
 
 // Functions that need to be cleaned up upon deactivation
@@ -403,69 +311,10 @@ function flux_cpt_shortcode($atts, $content = null) {
 
 
 
-/*
-if ( ! function_exists( 'fluxtabs_post_id' ) ) {
-	
-		
-		function fluxtabs_post_id() {
-	    
-	    if ( ! is_admin() && in_the_loop() ) {
-		
-				
-				$fluxpost = get_the_ID();
-				
-				echo 'flux-post-' . $fluxpost . ' ';
-				
-				
-			}
-		}
-  	
-		add_action( 'fluxtabs_post_id', 'fluxtabs_post_id' );
-}
-*/
 
 
 
 
-// End of custom template tags
-
-
-// Manipualte Loop from Functions
-
-/*
-if ( ! function_exists( 'change_loop' ) ) {
-
-	function change_loop($query) {
-		
-		if ( ! is_admin() && $query->is_main_query() ) {
-        
-     
-        $query->set( 'posts_per_page', 3);
-        
-       
-		}
-		
-	}
-
-	add_action( 'pre_get_posts', 'change_loop' );
-
-}
-*/
-
-
-
-
-
-
-
-
-/*
-
-add_action('the_content','ravs_content_div');
- function ravs_content_div( $content ){
-  return '<div class="garrett-wrap">'.$content.'</div>';
- }
-*/
 
 
 
