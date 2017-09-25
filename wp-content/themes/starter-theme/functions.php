@@ -177,6 +177,33 @@ add_filter('upload_mimes', 'cc_mime_types');
    	 
     	register_post_type( 'portfolio' , $args );    
 	}    
-	register_taxonomy("project-type", array("portfolio"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true)); 
+	register_taxonomy("project-type", array("portfolio"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true));
+	
+	
+	
+	
+	
+  add_action('init', 'cpt_two');    
+   	 
+	function cpt_two() {    
+    	$args = array(    
+        	'label' => __('CPT Two'),    
+        	'singular_label' => __('CPT Two'),    
+        	'public' => true,    
+        	'show_ui' => true,
+        	'has_archive' => true,	 
+        	'capability_type' => 'post',    
+        	'hierarchical' => false,    
+        	'rewrite' => true,    
+        	'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
+       	);    
+   	 
+    	register_post_type( 'cpt_two' , $args );    
+	}    
+	register_taxonomy("cpt-two-type", array("cpt_two"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true)); 
+	
+	
+	
+	
 
 
