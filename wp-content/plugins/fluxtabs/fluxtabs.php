@@ -275,6 +275,7 @@ add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 // JS
 
 
+/*
 function flux_js() {   
     
 	
@@ -282,6 +283,7 @@ function flux_js() {
 
 
 add_action('wp_enqueue_scripts', 'flux_js');
+*/
 
 
 
@@ -304,24 +306,110 @@ function internal_css_print() {
 } 
 
 
-function list_cpt_list() {
+if ( !function_exists( 'list_cpt_list' ) ) {
+
+	function list_cpt_list() {
 	
-	$args = array(
-   'public'   => true,
-   '_builtin' => false
-	);
+		$args = array(
+			'public'   => true,
+			'_builtin' => false
+		);
 	
 	
-	$list_post_types = get_post_types($args);
+		$list_post_types = get_post_types($args);
 	
-	foreach ( $list_post_types as $list_post_type ) {
+		foreach ( $list_post_types as $list_post_type ) {
   
-  	echo '{ text:"' . $list_post_type .'", value: "'.$list_post_type.'" },';
+  		echo '{ text:"' . $list_post_type .'", value: "'.$list_post_type.'" },';
+	
+		}
 	
 	}
-	
+
 }
 
+
+
+if ( !function_exists( 'flux_tabs_inline_js' ) ) {
+	
+	
+	function flux_tabs_inline_js() {
+		
+		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+			
+			return;
+			
+		}
+		
+/*
+		if ( get_user_option( 'rich_editing' ) !== 'true' ) && is_admin() {
+            return;
+       }
+*/ ?>
+
+
+	<script type="text/javascript">
+	
+	
+	(function() {
+    tinymce.PluginManager.add('mybutton', function( editor, url ) {
+        editor.addButton( 'mybutton', {
+            title: 'Flux Tabs',
+            // autofocus: true,
+            image: url + '/../1p21.png',
+            onclick: function() {
+                editor.windowManager.open( {
+                    title: tinyMCE_object.button_title,
+                    body: [
+	                    	{
+                            type   : 'container',
+                            name   : 'container',
+                            label  : 'Turn Posts into Filterd Tabs Based on Tags',
+                            html   : 'Choose Your Post Type Below'
+                        },
+												{
+                            type   : 'listbox',
+                            name   : 'mylistbox',
+                            label  : 'Post Type',
+                            values : [
+                                { text: "Blog", value: "flux-blog-posts" },
+                                { text: 'Flux Tabs Custom Post Type', value: 'flux-custom-posts' }
+                                
+                            ],
+                            value : 'flux-blog' // Sets the default
+                        }
+                                              
+                                                       
+                    ],
+                    onsubmit: function( e ) {
+	                    
+										editor.insertContent( '[flux-tabs feed="'+e.data.mylistbox+'"]');
+                    
+                    }
+                });
+            },
+        });
+    });
+ 
+})();
+
+	
+	
+</script>
+
+
+
+<?php }
+	
+	
+	add_action('wp_footer','flux_tabs_inline_js');
+	
+
+} 
+
+
+
+ 
 
 // Functions that need to be cleaned up upon deactivation
 
