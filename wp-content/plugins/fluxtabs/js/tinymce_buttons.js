@@ -19,7 +19,7 @@
                             name   : 'mylistbox',
                             label  : 'Post Type',
                             values : [
-                                { text: 'Blog', value: 'flux-blog-posts' },
+                                { text: "Blog", value: "flux-blog-posts" },
                                 { text: 'Flux Tabs Custom Post Type', value: 'flux-custom-posts' }
                                 
                             ],
@@ -30,7 +30,7 @@
                     ],
                     onsubmit: function( e ) {
 	                    
-										editor.insertContent( '['+e.data.mylistbox+']');
+										editor.insertContent( '[flux-tabs feed="'+e.data.mylistbox+'"]');
                     
                     }
                 });

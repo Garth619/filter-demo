@@ -108,11 +108,17 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 if ( ! function_exists( 'flux_posts_shortcode' ) ) {
 
 
-add_shortcode( 'flux-blog-posts', 'flux_posts_shortcode' );
+add_shortcode( 'flux-tabs', 'flux_posts_shortcode' );
 
-function flux_posts_shortcode( $atts ) { ?>
+function flux_posts_shortcode( $atts ) { 
+	
+	
+	extract(shortcode_atts(array(
+		"feed" => '',
+	), $atts));
+	
+	?>
     
-  
   
   <div class="button_wrapper">
 	
@@ -120,11 +126,10 @@ function flux_posts_shortcode( $atts ) { ?>
 	
 			<?php $args = array(
 				'post_type' => 'post',
-				//'orderby' => 'name',
 				'order' => 'ASC'
 			);
 
-			$buttontags = get_tags($args);
+			$buttontags = get_terms('post_tag',$args);
 
 			foreach($buttontags as $buttontag) { 
 				
@@ -180,88 +185,6 @@ function flux_posts_shortcode( $atts ) { ?>
 }
 
 }
-
-
-// Custom Post Type
-
-
-
-if ( ! function_exists( 'flux_custom_posts_shortcode' ) ) {
-
-
-add_shortcode( 'flux-custom-posts', 'flux_custom_posts_shortcode' );
-
-function flux_custom_posts_shortcode( $atts ) { ?>
-    
-  <div class="button_wrapper">
-	
-		<div id="button_isotope_wrapper" class="button-group">
-	
-			<?php $args = array(
-				'post_type' => 'flux_tabs',
-				'order' => 'ASC',
-			);
-			
-			
-
-			$buttontags = get_terms('flux-tab-tag',$args);
-
-			foreach($buttontags as $buttontag) { 
-				
-				
-			echo '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
-			
-			
-			} ?>
-	
-		</div><!-- button_isotope_wrapper -->
-	
-	
-		<button id="clearall">Clear Filters</button>
-	
-	
-	</div><!-- button_wrapper -->
-    
-    
-    <?php ob_start();
-    
-    
-        
-    // Flux Posts
-    
-    $query = new WP_Query( array(
-      'post_type' => 'flux_tabs',
-      'posts_per_page' => -1,
-    ) );
-    
-    if ( $query->have_posts() ) { ?>
-    
-    		<div id="isotope">
-            
-            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-            
-            <div id="post-<?php the_ID(); ?>" <?php post_class('flux-post');?>>
-               
-               <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-               
-               <?php the_content();?>
-               
-            </div>
-            
-            <?php endwhile;
-            wp_reset_postdata(); ?>
-        
-        </div><!-- isotope -->
-    
-    <?php $myvariable = ob_get_clean();
-    
-    return $myvariable;
-    }
-	}
-
-}
-
-
 
 
 
@@ -366,22 +289,6 @@ add_action('wp_enqueue_scripts', 'flux_js');
 
 
 
-function internal_css_print($flux_css) {
-	
-	echo '<style type="text/css">';
-  
-  	$flux_css = plugin_dir_url( __FILE__ ) . '/css/style.css';
-		return $flux_css;
-
-	echo '</style>';
-
-}
-
-
-
-
-
-/*
 add_action( 'wp_head', 'internal_css_print' );
 
 function internal_css_print() {
@@ -394,17 +301,32 @@ function internal_css_print() {
 </style>';
 
 
+} 
+
+
+function list_cpt_list() {
+	
+	$args = array(
+   'public'   => true,
+   '_builtin' => false
+	);
+	
+	
+	$list_post_types = get_post_types($args);
+	
+	foreach ( $list_post_types as $list_post_type ) {
+  
+  	echo '{ text:"' . $list_post_type .'", value: "'.$list_post_type.'" },';
+	
+	}
+	
 }
-*/
-
-
-
-
 
 
 // Functions that need to be cleaned up upon deactivation
 
 // function fluxtabs_deactivate() {}register_activation_hook( __FILE__, 'fluxtabs_deactivation' );
+
 
 
 
