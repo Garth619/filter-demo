@@ -20,7 +20,7 @@
                             label  : 'Post Type',
                             values : [
                                 { text: "Blog", value: "flux-blog-posts" },
-                                { text: 'Flux Tabs Custom Post Type', value: 'flux-custom-posts' }
+                                { text: 'Flux Tabs', value: 'flux-custom-posts' }
                                 
                             ],
                             value : 'flux-blog' // Sets the default
