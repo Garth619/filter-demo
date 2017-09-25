@@ -102,7 +102,7 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 }
 
 
-// Blog Shortcode
+// Shortcode
 
 
 if ( ! function_exists( 'flux_posts_shortcode' ) ) {
@@ -110,7 +110,7 @@ if ( ! function_exists( 'flux_posts_shortcode' ) ) {
 
 add_shortcode( 'flux-tabs', 'flux_posts_shortcode' );
 
-function flux_posts_shortcode( $atts ) { 
+function flux_posts_shortcode( $atts, $content = null ) { 
 	
 	
 	extract(shortcode_atts(array(
