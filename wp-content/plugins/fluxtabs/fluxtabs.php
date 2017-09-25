@@ -123,13 +123,15 @@ function flux_posts_shortcode( $atts ) {
   <div class="button_wrapper">
 	
 		<div id="button_isotope_wrapper" class="button-group">
+			
+			<!-- also need to get spit out the term of whatever custom post type I select in the list  box... -->
 	
 			<?php $args = array(
-				'post_type' => 'post',
+				//'post_type' => '',
 				'order' => 'ASC'
 			);
 
-			$buttontags = get_terms('post_tag',$args);
+			$buttontags = get_terms('flux-tab-tag',$args);
 
 			foreach($buttontags as $buttontag) { 
 				
@@ -155,7 +157,7 @@ function flux_posts_shortcode( $atts ) {
     // Flux Posts
     
     $query = new WP_Query( array(
-      'post_type' => 'post',
+      'post_type' => 'flux_tabs',
       'posts_per_page' => -1,
     ) );
     
@@ -189,9 +191,6 @@ function flux_posts_shortcode( $atts ) {
 
 
 // Single Post Button
-
-
-
 
 
 

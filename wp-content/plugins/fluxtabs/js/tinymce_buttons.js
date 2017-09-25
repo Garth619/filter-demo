@@ -19,11 +19,11 @@
                             name   : 'mylistbox',
                             label  : 'Post Type',
                             values : [
-                                { text: "Blog", value: "flux-blog-posts" },
-                                { text: 'Flux Tabs', value: 'flux-custom-posts' }
+                                { text: "Blog", value: "posts" },
+                                { text: 'Flux Tabs', value: 'flux_tabs' }
                                 
                             ],
-                            value : 'flux-blog' // Sets the default
+                            value : 'posts' // Sets the default
                         }
                                               
                                                        
