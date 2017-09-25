@@ -257,10 +257,94 @@ function flux_custom_posts_shortcode( $atts ) { ?>
     
     return $myvariable;
     }
-}
+	}
 
 }
 
+
+
+
+
+// Single Post Button
+
+
+
+
+
+if ( ! function_exists( 'flux_tabs_theme_setup' ) ) {
+    function flux_tabs_theme_setup() {
+ 
+        add_action( 'init', 'flux_tabs_buttons' );
+ 
+    }
+}
+ 
+
+
+add_action( 'after_setup_theme', 'flux_tabs_theme_setup' );
+
+
+
+
+if ( ! function_exists( 'flux_tabs_buttons' ) ) {
+    function flux_tabs_buttons() {
+        if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+            return;
+        }
+ 
+        if ( get_user_option( 'rich_editing' ) !== 'true' ) {
+            return;
+        }
+ 
+        add_filter( 'mce_external_plugins', 'flux_tabs_add_buttons' );
+        add_filter( 'mce_buttons', 'flux_tabs_register_buttons' );
+    }
+}
+ 
+
+
+
+if ( ! function_exists( 'flux_tabs_add_buttons' ) ) {
+    function flux_tabs_add_buttons( $plugin_array ) {
+        $plugin_array['mybutton'] = plugin_dir_url( __FILE__ ) . 'js/tinymce_buttons.js';
+        return $plugin_array;
+    }
+} //css???
+
+ 
+
+
+if ( ! function_exists( 'flux_tabs_register_buttons' ) ) {
+    function flux_tabs_register_buttons( $buttons ) {
+        array_push( $buttons, 'mybutton' );
+        return $buttons;
+    }
+}
+ 
+
+
+if ( !function_exists( 'flux_tabs_tinymce_extra_vars' ) ) {
+	function flux_tabs_tinymce_extra_vars() { ?>
+		
+		<script type="text/javascript">
+			
+			var tinyMCE_object = <?php echo json_encode(
+				array(
+					'button_name' => esc_html__('Flux Tabs', 'flux_tabs-slug'),
+					'button_title' => esc_html__('Flux Tabs', 'flux_tabs-slug'),
+					'image_title' => esc_html__('MP4 Video File URL', 'flux_tabs-slug'),
+					'image_button_title' => esc_html__('Upload or Select MP4 From Media Library', 'flux_tabs-slug'),
+				)
+				);
+			?>;
+			
+		</script><?php
+	
+	}
+}
+
+
+add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 
 
 
@@ -282,6 +366,22 @@ add_action('wp_enqueue_scripts', 'flux_js');
 
 
 
+function internal_css_print($flux_css) {
+	
+	echo '<style type="text/css">';
+  
+  	$flux_css = plugin_dir_url( __FILE__ ) . '/css/style.css';
+		return $flux_css;
+
+	echo '</style>';
+
+}
+
+
+
+
+
+/*
 add_action( 'wp_head', 'internal_css_print' );
 
 function internal_css_print() {
@@ -295,6 +395,7 @@ function internal_css_print() {
 
 
 }
+*/
 
 
 

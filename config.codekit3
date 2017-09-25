@@ -4582,6 +4582,17 @@
 		"oAP": "\/wp-content\/plugins\/akismet\/wrapper.php",
 		"oF": 0
 		},
+	"\/wp-content\/plugins\/fluxtabs\/1p21.png": {
+		"ft": 32768,
+		"iS": 1989,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/1p21.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/wp-content\/plugins\/fluxtabs\/css\/style.css": {
 		"aP": 1,
 		"bl": 0,
@@ -4627,6 +4638,26 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/flux-js-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/fluxtabs\/js\/tinymce_buttons-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/tinymce_buttons-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/fluxtabs\/js\/tinymce_buttons.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/tinymce_buttons-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
