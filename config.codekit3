@@ -4582,6 +4582,18 @@
 		"oAP": "\/wp-content\/plugins\/akismet\/wrapper.php",
 		"oF": 0
 		},
+	"\/wp-content\/plugins\/filter-demo-master (1).zip": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/wp-content\/plugins\/filter-demo-master (1).zip",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/fluxtabs.zip": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/wp-content\/plugins\/fluxtabs.zip",
+		"oF": 0
+		},
 	"\/wp-content\/plugins\/fluxtabs\/1p21.png": {
 		"ft": 32768,
 		"iS": 1989,
@@ -4613,7 +4625,7 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/plugins\/fluxtabs\/css\/style.css",
 		"oF": 0,
-		"oS": 3,
+		"oS": 0,
 		"uL": 1
 		},
 	"\/wp-content\/plugins\/fluxtabs\/fluxtabs.php": {
@@ -4639,7 +4651,7 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/flux-js-min.js",
 		"oF": 0,
-		"sC": 0,
+		"sC": 3,
 		"tS": 0
 		},
 	"\/wp-content\/plugins\/fluxtabs\/js\/mce.js": {
@@ -4669,7 +4681,7 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/tinymce_buttons-min.js",
 		"oF": 0,
-		"sC": 0,
+		"sC": 3,
 		"tS": 0
 		},
 	"\/wp-content\/plugins\/fluxtabs\/uninstall.php": {

@@ -105,6 +105,8 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 // Shortcode
 
 
+
+
 if ( ! function_exists( 'flux_posts_shortcode' ) ) {
 
 
@@ -124,30 +126,30 @@ function flux_posts_shortcode( $atts, $content = null ) {
 	
 		<div id="button_isotope_wrapper" class="button-group">
 			
-			<!-- also need to get spit out the term of whatever custom post type I select in the list  box... -->
+			
 	
 			<?php $args = array(
-				//'post_type' => '',
-				'order' => 'ASC'
+				'order' => 'ASC',
+				'taxonomy' => 'flux-tab-tag'
 			);
 
-			$buttontags = get_terms('flux-tab-tag',$args);
+			$buttontags = get_terms($args);
 
 			foreach($buttontags as $buttontag) { 
 				
 				
-			echo '<button data-filter-name="tag-'.$buttontag->slug.'" data-filter=".tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+			echo '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
 			
 			
 			} ?>
 	
-		</div><!-- button_isotope_wrapper -->
+		</div>
 	
 	
 		<button id="clearall">Clear Filters</button>
 	
 	
-	</div><!-- button_wrapper -->
+	</div>
     
     
     <?php ob_start();
@@ -157,8 +159,8 @@ function flux_posts_shortcode( $atts, $content = null ) {
     // Flux Posts
     
     $query = new WP_Query( array(
-      'post_type' => 'flux_tabs',
-      'posts_per_page' => -1,
+      'post_type' => 'flux_tabs'
+      
     ) );
     
     if ( $query->have_posts() ) { ?>
@@ -178,7 +180,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
             <?php endwhile;
             wp_reset_postdata(); ?>
         
-        </div><!-- isotope -->
+        </div>
     
     <?php $myvariable = ob_get_clean();
     
@@ -187,6 +189,103 @@ function flux_posts_shortcode( $atts, $content = null ) {
 }
 
 }
+
+
+
+
+
+/*
+if ( !function_exists( 'register_shortcodes' ) ) {
+
+
+	function register_shortcodes() {
+    add_shortcode( 'flux-tabs', 'shortcode_options' );
+	}
+
+	add_action( 'init', 'register_shortcodes' );
+
+
+	function shortcode_options( $atts ) {
+    global $wp_query,
+        	 $post;
+
+    $atts = shortcode_atts( array(
+       'feed' => '',
+       'tag'	=> ''
+    ), $atts ); ?>
+
+    
+    
+    
+    
+   <div class="button_wrapper">
+	
+		<div id="button_isotope_wrapper" class="button-group">
+			
+			<?php $args = array(
+				
+				'order' => 'ASC',
+				'hide_empty' => false,
+				'taxonomy' => 'post_tag'
+				
+			);?>
+
+			<?php $buttontags = get_terms($args);
+
+			foreach($buttontags as $buttontag) { 
+				
+				echo '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+			
+			
+			} ?>
+	
+		</div>
+	
+	
+		<button id="clearall">Clear Filters</button>
+	
+	
+	</div>
+    
+		<?php $loop = new WP_Query( array(
+       'post_type'  =>  array( sanitize_title( $atts['feed'] ) ),
+        'order'     => 'ASC'
+        )
+       );
+
+    
+    
+    if( ! $loop->have_posts() ) {
+        return false;
+    } 
+    
+    echo '<div class="isotope">';
+
+    while( $loop->have_posts() ) {
+        $loop->the_post(); ?>
+        
+        
+        
+				<div id="post-<?php the_ID(); ?>" <?php post_class('flux-post');?>>
+               
+            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+               
+            <?php the_content();?>
+               
+         </div>
+    
+    
+    
+    <?php }
+	    
+	    echo '</div>';
+
+    wp_reset_postdata();
+	}
+
+
+}
+*/
 
 
 
@@ -333,30 +432,5 @@ if ( !function_exists( 'list_cpt_list' ) ) {
 	}
 
 }
-
-
-
-
-
-
- 
-
-// Functions that need to be cleaned up upon deactivation
-
-// function fluxtabs_deactivate() {}register_activation_hook( __FILE__, 'fluxtabs_deactivation' );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
