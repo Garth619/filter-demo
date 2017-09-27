@@ -19,7 +19,7 @@
                             name   : 'mylistbox',
                             label  : 'Post Type',
                             values : [
-                                { text: "Blog", value: "posts" },
+                                { text: "Blog", value: "post" },
                                 { text: 'Flux Tabs', value: 'flux_tabs' }
                                 
                             ],
