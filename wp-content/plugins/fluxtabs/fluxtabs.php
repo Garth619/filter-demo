@@ -71,7 +71,7 @@ if ( ! function_exists( 'flux_tabs' ) ) {
     
  }
 	
-// Flux Template Tags (Do Action) 
+// Flux Template Tags (Do Action) - template tags if you need custom classes somewhere in the template for whataver reason (similer to post_class). However I'm not currently using 
 
 if ( ! function_exists( 'fluxtabs_classes' ) ) {
 	
@@ -83,7 +83,9 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 				
 				$fluxpost = get_the_ID();
 				
-				echo 'flux-post flux-post-' . $fluxpost . ' ';
+				echo 'flux-post-' . $fluxpost . ' ';
+				
+
 				
 				$posttags = get_the_tags();
 				
@@ -91,7 +93,7 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 					
 					foreach($posttags as $tag) {
 					
-						 echo 'tag-' . $tag->slug . ' '; 
+						 echo $tag->slug .' '; 
   				
   				}
 				}
@@ -105,8 +107,6 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 // Shortcode
 
 
-
-
 if ( ! function_exists( 'flux_posts_shortcode' ) ) {
 
 
@@ -115,10 +115,19 @@ add_shortcode( 'flux-tabs', 'flux_posts_shortcode' );
 function flux_posts_shortcode( $atts, $content = null ) { 
 	
 	
+/*
 	extract(shortcode_atts(array(
 		"feed" => '',
 	), $atts));
-	
+*/
+
+		global $wp_query,
+        	 $post;
+
+		$atts = shortcode_atts( array(
+       'feed' => ''
+    ), $atts );
+
 	?>
     
   
@@ -127,29 +136,55 @@ function flux_posts_shortcode( $atts, $content = null ) {
 		<div id="button_isotope_wrapper" class="button-group">
 			
 			
-	
-			<?php $args = array(
-				'order' => 'ASC',
-				'taxonomy' => 'flux-tab-tag'
-			);
-
-			$buttontags = get_terms($args);
-
-			foreach($buttontags as $buttontag) { 
+			<?php $mytest = sanitize_title( $atts['feed'] );
 				
 				
-			echo '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+				// echos out the default posts tag prefix a little differently than cpts
+				
+				if($mytest == 'post') {
+					
+						$args = array(
+							'taxonomy' => 'post_tag'
+						);
+					
+					$buttontags = get_terms($args);
+			
+					foreach($buttontags as $buttontag) { 
+				
+						echo '<button data-filter-name="tag-'.$buttontag->slug.'" data-filter=".tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+			
+					}
+				
+				}
+				
+				else {
+					
+					// echos out the cpt posts tag prefix
+					
+					$args = array(
+						'taxonomy' => 'flux-tab-tag'
+					);
+					
+					$buttontags = get_terms($args);
+			
+					foreach($buttontags as $buttontag) { 
+				
+						echo '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
 			
 			
-			} ?>
-	
-		</div>
+					}
+					
+				}
+				
+			?>
+			
+		</div><!-- button-group -->
 	
 	
 		<button id="clearall">Clear Filters</button>
 	
 	
-	</div>
+	</div><!-- button_wrapper -->
     
     
     <?php ob_start();
@@ -159,9 +194,10 @@ function flux_posts_shortcode( $atts, $content = null ) {
     // Flux Posts
     
     $query = new WP_Query( array(
-      'post_type' => 'flux_tabs'
+      'post_type' => array( sanitize_title( $atts['feed'] ) )
       
     ) );
+    
     
     if ( $query->have_posts() ) { ?>
     
@@ -186,8 +222,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
     
     return $myvariable;
     }
-}
-
+	}
 }
 
 
@@ -411,6 +446,7 @@ function internal_css_print() {
 } 
 
 
+/*
 if ( !function_exists( 'list_cpt_list' ) ) {
 
 	function list_cpt_list() {
@@ -432,5 +468,6 @@ if ( !function_exists( 'list_cpt_list' ) ) {
 	}
 
 }
+*/
 
 
