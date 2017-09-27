@@ -200,7 +200,26 @@ add_filter('upload_mimes', 'cc_mime_types');
    	 
     	register_post_type( 'cpt_two' , $args );    
 	}    
-	register_taxonomy("cpt-two-type", array("cpt_two"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true)); 
+	register_taxonomy ('cpt-two-type',array('cpt_two'),
+				array (
+        	'hierarchical' => false,
+					'labels' => array (
+            'name' => _x( 'cpt_two Tags', 'taxonomy general name' ),
+            'singular_name' => _x( 'cpt_two Tag', 'taxonomy singular name' ),
+            'search_items' =>  __( 'Search cpt_two Tags' ),
+            'all_items' => __( 'All cpt_two Tags' ),
+            'edit_item' => __( 'Edit cpt_two Tag' ), 
+            'update_item' => __( 'Update cpt_two Tag' ),
+            'add_new_item' => __( 'Add New cpt_two Tag' ),
+            'new_item_name' => __( 'New cpt_two Tag Name' ),
+            'menu_name' => __( 'cpt_two Tags' ),
+        ),
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'cpt-two-type', 'with_front' => true),
+				)
+			);
+    
 	
 	
 	

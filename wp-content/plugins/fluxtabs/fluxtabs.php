@@ -36,7 +36,7 @@ if ( ! function_exists( 'flux_tabs' ) ) {
         	'singular_label' => __('Flux Tab'),    
         	'public' => true,    
         	'show_ui' => true,
-        	'has_archive' => true,	 
+        	'has_archive' => false,	 
         	'capability_type' => 'post',    
         	'hierarchical' => false,    
         	'rewrite' => true,    
@@ -160,10 +160,10 @@ function flux_posts_shortcode( $atts, $content = null ) {
 				
 				else {
 					
-					// echos out the cpt posts tag prefix
+					// prints out the cpt posts tag prefix as well as the tax title 
 					
 					
-					///////////
+				///////////
 				
 				
 				
@@ -176,12 +176,12 @@ function flux_posts_shortcode( $atts, $content = null ) {
 				
 				foreach ($listthisouts as $listthisout) {
 					
-					$myarray[] = $listthisout; // not sure about this line
+					$myarray[] = $listthisout;
 					
 				}
 				
 				
-				echo $myarray[0];
+				// echo $myarray[0];
 				
 /*
 				$myArray = array(); 
@@ -190,7 +190,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 						$myArray[] = $resultRow['someColumn']; 
 				} 
 
-				print_r($myArray); //$myArray now contains all contents of 'someColumn' from the result set  
+				print_r($myArray); //$myArray now contains all contents of 'someColumn' from the result set  http://forums.devshed.com/php-development-5/store-foreach-variable-outside-loop-654500.html
 */
 					
 				
@@ -198,14 +198,14 @@ function flux_posts_shortcode( $atts, $content = null ) {
 				/////////
 					
 					$args = array(
-						'taxonomy' => 'flux-tab-tag'
+						'taxonomy' => $myarray[0]
 					);
 					
 					$buttontags = get_terms($args);
 			
 					foreach($buttontags as $buttontag) { 
 				
-						print '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+						print '<button data-filter-name="'.$myarray[0].'-'.$buttontag->slug.'" data-filter=".'.$myarray[0].'-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
 			
 					}
 					
