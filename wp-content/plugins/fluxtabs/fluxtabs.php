@@ -125,7 +125,8 @@ function flux_posts_shortcode( $atts, $content = null ) {
         	 $post;
 
 		$atts = shortcode_atts( array(
-       'feed' => ''
+       'feed' => '',
+       'wrap' => ''
     ), $atts );
 
 	?>
@@ -136,12 +137,12 @@ function flux_posts_shortcode( $atts, $content = null ) {
 		<div id="button_isotope_wrapper" class="button-group">
 			
 			
-			<?php $mytest = sanitize_title( $atts['feed'] );
+			<?php
 				
 				
 				// echos out the default posts tag prefix a little differently than cpts
 				
-				if($mytest == 'post') {
+				if(sanitize_title( $atts['feed'] ) == 'post') {
 					
 						$args = array(
 							'taxonomy' => 'post_tag'
@@ -151,7 +152,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 			
 					foreach($buttontags as $buttontag) { 
 				
-						echo '<button data-filter-name="tag-'.$buttontag->slug.'" data-filter=".tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+						print '<button data-filter-name="tag-'.$buttontag->slug.'" data-filter=".tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
 			
 					}
 				
@@ -161,6 +162,41 @@ function flux_posts_shortcode( $atts, $content = null ) {
 					
 					// echos out the cpt posts tag prefix
 					
+					
+					///////////
+				
+				
+				
+				$mytest = sanitize_title( $atts['feed'] );
+					
+				$listthisouts = get_object_taxonomies($mytest);	
+				
+				
+				$myarray = array();
+				
+				foreach ($listthisouts as $listthisout) {
+					
+					$myarray[] = $listthisout; // not sure about this line
+					
+				}
+				
+				
+				echo $myarray[0];
+				
+/*
+				$myArray = array(); 
+				
+				foreach ( $databaseResultSet as $resultRow ) { 
+						$myArray[] = $resultRow['someColumn']; 
+				} 
+
+				print_r($myArray); //$myArray now contains all contents of 'someColumn' from the result set  
+*/
+					
+				
+				
+				/////////
+					
 					$args = array(
 						'taxonomy' => 'flux-tab-tag'
 					);
@@ -169,8 +205,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 			
 					foreach($buttontags as $buttontag) { 
 				
-						echo '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
-			
+						print '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
 			
 					}
 					
