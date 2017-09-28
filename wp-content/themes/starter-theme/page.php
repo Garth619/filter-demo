@@ -2,7 +2,12 @@
 
 <?php // list_cpt_list();?>
 
-<?php get_template_part( 'loop', 'index' );?>
+
+<div class="container">
+
+	<?php get_template_part( 'loop', 'index' );?>
+
+</div><!-- container -->
 
 <?php //use get_template_part( 'loop', 'page' ) if needed ?>
 

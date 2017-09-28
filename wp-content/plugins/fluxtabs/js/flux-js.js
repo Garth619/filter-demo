@@ -100,8 +100,33 @@ var filters = [];
 
   });
   
- 
-
-	
   
-}); // document ready
+  
+    
+  // Static Pages
+  
+  
+ $('.flux_tabs_page_wrapper h2').each(function(){ 
+    
+    var $set = $(this).nextUntil("h2").addBack();
+    
+    $set.wrapAll('<div class="flux-post" />');
+	
+	});
+	
+	
+	var $fluxhtml = '<div class="button_wrapper">';
+			$fluxhtml += '<div id="button_isotope_wrapper" class="button-group">';
+			$fluxhtml += '<button data-filter-name="tab-one" data-filter=".tab-one">Button 1</button>';
+			$fluxhtml += '<button data-filter-name="tab-two" data-filter=".tab-two">Button 2</button>';
+			$fluxhtml += '</div><!-- button-group -->';
+			$fluxhtml += '<button id="clearall">Clear Filters</button>';
+			$fluxhtml += '</div><!-- button_wrapper -->';
+	
+	
+	$('.flux_tabs_page_wrapper .flux-post:first').before($fluxhtml);
+	
+	$('.flux-post:first').addClass("tab-one");
+  
+ 
+	}); // document ready

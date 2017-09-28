@@ -1,15 +1,16 @@
 <?php
 
-defined( 'ABSPATH' ) OR exit;
-
 /*
 Plugin Name: Flux Tabs
 Plugin URI:  http://www.1point21interactive.com
-Description: Creates Filtered Tabs for Posts based on Tags
+Description: Creates Filtered Tabs for Posts/Custom Post Types based on Tags. Can also set up tabs for sections on Static Pages.
 Version:     1.0
 Author:      Garrett Cullen
 Author URI:  http://www.1point21interactive.com
 */ 
+
+
+defined( 'ABSPATH' ) OR exit;
 
 
 register_activation_hook( __FILE__, 'fluxtabs_activation' );
@@ -21,7 +22,6 @@ function fluxtabs_activation() {
 	 flux_tabs();
 	 flush_rewrite_rules();
 	 
-
 }
 
 // Register Custom Post Type
@@ -71,40 +71,8 @@ if ( ! function_exists( 'flux_tabs' ) ) {
     
  }
 	
-// Flux Template Tags (Do Action) - template tags if you need custom classes somewhere in the template for whataver reason (similer to post_class). However I'm not currently using 
 
-if ( ! function_exists( 'fluxtabs_classes' ) ) {
-	
-		
-		function fluxtabs_classes() {
-	    
-	    if ( ! is_admin() && in_the_loop() ) {
-		
-				
-				$fluxpost = get_the_ID();
-				
-				echo 'flux-post-' . $fluxpost . ' ';
-				
-
-				
-				$posttags = get_the_tags();
-				
-				if ($posttags) {
-					
-					foreach($posttags as $tag) {
-					
-						 echo $tag->slug .' '; 
-  				
-  				}
-				}
-			}
-		}
-  	
-		add_action( 'fluxtabs_classes', 'fluxtabs_classes' );
-}
-
-
-// Shortcode
+// Posts Shortcode
 
 
 if ( ! function_exists( 'flux_posts_shortcode' ) ) {
@@ -114,19 +82,13 @@ add_shortcode( 'flux-tabs', 'flux_posts_shortcode' );
 
 function flux_posts_shortcode( $atts, $content = null ) { 
 	
-	
-/*
-	extract(shortcode_atts(array(
-		"feed" => '',
-	), $atts));
-*/
+
 
 		global $wp_query,
         	 $post;
 
 		$atts = shortcode_atts( array(
-       'feed' => '',
-       'wrap' => ''
+       'feed' => ''
     ), $atts );
 
 	?>
@@ -163,10 +125,6 @@ function flux_posts_shortcode( $atts, $content = null ) {
 					// prints out the cpt posts tag prefix as well as the tax title 
 					
 					
-				///////////
-				
-				
-				
 				$mytest = sanitize_title( $atts['feed'] );
 					
 				$listthisouts = get_object_taxonomies($mytest);	
@@ -179,23 +137,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 					$myarray[] = $listthisout;
 					
 				}
-				
-				
-				// echo $myarray[0];
-				
-/*
-				$myArray = array(); 
-				
-				foreach ( $databaseResultSet as $resultRow ) { 
-						$myArray[] = $resultRow['someColumn']; 
-				} 
 
-				print_r($myArray); //$myArray now contains all contents of 'someColumn' from the result set  http://forums.devshed.com/php-development-5/store-foreach-variable-outside-loop-654500.html
-*/
-					
-				
-				
-				/////////
 					
 					$args = array(
 						'taxonomy' => $myarray[0]
@@ -263,99 +205,70 @@ function flux_posts_shortcode( $atts, $content = null ) {
 
 
 
+// Static Page Shortcode
 
-/*
-if ( !function_exists( 'register_shortcodes' ) ) {
-
-
-	function register_shortcodes() {
-    add_shortcode( 'flux-tabs', 'shortcode_options' );
-	}
-
-	add_action( 'init', 'register_shortcodes' );
+if ( ! function_exists( 'flux_static_page_shortcode' ) ) {
 
 
-	function shortcode_options( $atts ) {
-    global $wp_query,
-        	 $post;
-
-    $atts = shortcode_atts( array(
-       'feed' => '',
-       'tag'	=> ''
-    ), $atts ); ?>
-
-    
-    
-    
-    
-   <div class="button_wrapper">
+	add_shortcode( 'flux-tabs-page', 'flux_static_page_shortcode' );
 	
-		<div id="button_isotope_wrapper" class="button-group">
+	function flux_static_page_shortcode( $atts, $content = null ) {
+		
+		
+		
+		
+		$atts = shortcode_atts( array(
+       'selector' => 'h2',
+       ), $atts ); ?>
+	
+	
+
+		
+		
+		<div class="flux_tabs_page_wrapper">
+		
+			<?php echo $content;?>
 			
-			<?php $args = array(
-				
-				'order' => 'ASC',
-				'hide_empty' => false,
-				'taxonomy' => 'post_tag'
-				
-			);?>
-
-			<?php $buttontags = get_terms($args);
-
-			foreach($buttontags as $buttontag) { 
-				
-				echo '<button data-filter-name="flux-tab-tag-'.$buttontag->slug.'" data-filter=".flux-tab-tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
-			
-			
-			} ?>
-	
-		</div>
+		</div><!-- flux_tabs_wrapper -->
 	
 	
-		<button id="clearall">Clear Filters</button>
-	
-	
-	</div>
-    
-		<?php $loop = new WP_Query( array(
-       'post_type'  =>  array( sanitize_title( $atts['feed'] ) ),
-        'order'     => 'ASC'
-        )
-       );
-
-    
-    
-    if( ! $loop->have_posts() ) {
-        return false;
-    } 
-    
-    echo '<div class="isotope">';
-
-    while( $loop->have_posts() ) {
-        $loop->the_post(); ?>
-        
-        
-        
-				<div id="post-<?php the_ID(); ?>" <?php post_class('flux-post');?>>
-               
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-               
-            <?php the_content();?>
-               
-         </div>
-    
-    
-    
-    <?php }
-	    
-	    echo '</div>';
-
-    wp_reset_postdata();
-	}
-
+	<?php }
 
 }
-*/
+
+
+// Flux Template Tags (Do Action) - template tags if you need custom classes somewhere in the template for whataver reason (similer to post_class). However I'm not currently using 
+
+if ( ! function_exists( 'fluxtabs_classes' ) ) {
+	
+		
+		function fluxtabs_classes() {
+	    
+	    if ( ! is_admin() && in_the_loop() ) {
+		
+				
+				$fluxpost = get_the_ID();
+				
+				echo 'flux-post-' . $fluxpost . ' ';
+				
+
+				
+				$posttags = get_the_tags();
+				
+				if ($posttags) {
+					
+					foreach($posttags as $tag) {
+					
+						 echo $tag->slug .' '; 
+  				
+  				}
+				}
+			}
+		}
+  	
+		add_action( 'fluxtabs_classes', 'fluxtabs_classes' );
+}
+
 
 
 
@@ -442,9 +355,6 @@ if ( !function_exists( 'flux_tabs_tinymce_extra_vars' ) ) {
 add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 
 
-
-
-
 // JS
 
 
@@ -460,10 +370,7 @@ function flux_js() {
 add_action('wp_enqueue_scripts', 'flux_js');
 
 
-
-
 // CSS
-
 
 
 add_action( 'wp_head', 'internal_css_print' );
