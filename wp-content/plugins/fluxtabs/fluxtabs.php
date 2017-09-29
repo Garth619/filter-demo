@@ -80,6 +80,8 @@ if ( ! function_exists( 'flux_posts_shortcode' ) ) {
 
 add_shortcode( 'flux-tabs', 'flux_posts_shortcode' );
 
+// add_filter('widget_text', 'do_shortcode');
+
 function flux_posts_shortcode( $atts, $content = null ) { 
 	
 
@@ -226,10 +228,15 @@ if ( ! function_exists( 'flux_static_page_shortcode' ) ) {
 		
 		
 		<div class="flux_tabs_page_wrapper">
-		
-			<?php echo $content;?>
 			
-		</div><!-- flux_tabs_wrapper -->
+					
+			<div id="isotope">
+			
+				<?php echo $content;?>
+			
+			</div><!-- isotope -->
+			
+		</div><!-- flux_tabs_page_wrapper -->
 	
 	
 	<?php }

@@ -4634,6 +4634,16 @@
 		"oAP": "\/wp-content\/plugins\/fluxtabs\/fluxtabs.php",
 		"oF": 0
 		},
+	"\/wp-content\/plugins\/fluxtabs\/js\/flux-js copy.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/flux-js copy-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"\/wp-content\/plugins\/fluxtabs\/js\/flux-js-min.js": {
 		"ft": 64,
 		"ma": 0,

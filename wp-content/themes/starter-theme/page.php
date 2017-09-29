@@ -9,6 +9,10 @@
 
 </div><!-- container -->
 
+
+
+
+
 <?php //use get_template_part( 'loop', 'page' ) if needed ?>
 
 	

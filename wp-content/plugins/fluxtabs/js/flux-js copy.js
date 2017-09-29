@@ -52,38 +52,9 @@ var filters = [];
 // filter items on button click
 
 	 
-	// i dont think i need this in a fuction because it will fire on click anyways I think i need to create a new event listener wrapped in fucntion and make appened html is being included
+	
 	 
 
-	
-		
-	 // Static Pages
-  
-  
-  $('.flux_tabs_page_wrapper h2').each(function(){ 
-    
-    var $set = $(this).nextUntil("h2").addBack();
-    
-    $set.wrapAll('<div class="flux-post" />');
-    
-    	$('.flux-post:first').addClass("tab-one");
-    	$('.flux-post:last').addClass("tab-five");
-	
-	});
-
-	
-	var fluxhtml = '<div class="button_wrapper"><div id="button_isotope_wrapper" class="button-group"><button data-filter-name="tab-one" data-filter=".tab-one">Button 1</button><button data-filter-name="tab-two" data-filter=".tab-two">Button 2</button><button data-filter-name="tab-three" data-filter=".tab-three">Button 3</button><button data-filter-name="tab-four" data-filter=".tab-four">Button 4</button></div><button id="clearall">Clear Filters</button></div><!-- button_wrapper -->';
-	
-	
-	$('#isotope').before(fluxhtml);
-
-
-	
-	
-	// All Tabs
-	
-	
-	
 	$('#button_isotope_wrapper').on( 'click', 'button', function() {
 
 	  $(this).toggleClass("active");
@@ -121,7 +92,51 @@ var filters = [];
 	});
 	
 	
+	
+	
+	
+	
+	 // Static Pages
+  
+  
 
+	
+	
+/*
+	 $('.flux_tabs_page_wrapper h2').each(function(){ 
+    
+    var $set = $(this).nextUntil("h2").addBack();
+    
+    $set.wrapAll('<div class="flux-post" />');
+    
+    	$('.flux-post:first').addClass("tab-one");
+	
+	});
+*/
+	
+
+	
+/*
+	var $fluxhtml = '<div class="button_wrapper">';
+			$fluxhtml += '<div id="button_isotope_wrapper" class="button-group">';
+			$fluxhtml += '<button data-filter-name="tab-one" data-filter=".tab-one">Button 1</button>';
+			$fluxhtml += '<button data-filter-name="tab-two" data-filter=".tab-two">Button 2</button>';
+			$fluxhtml += '</div><!-- button-group -->';
+			$fluxhtml += '<button id="clearall">Clear Filters</button>';
+			$fluxhtml += '</div><!-- button_wrapper -->';
+	
+	
+	$('.flux_tabs_page_wrapper .flux-post:first').before($fluxhtml);
+	
+	$('.flux-post:first').addClass("tab-one");
+*/
+
+
+
+ var fluxhtml = '<button data-filter-name="tab-five" data-filter=".tab-five">Button 5</button>';
+
+
+ $('.button_wrapper').append(fluxhtml);
 
   $('#clearall').click(function(){
 
@@ -134,7 +149,9 @@ var filters = [];
 
   });
   
-
+  
+  
+   
   
  
 	}); // document ready
