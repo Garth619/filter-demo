@@ -32,6 +32,54 @@ jQuery(document).ready(function(){
 	
 
 
+// Static Pages
+
+
+	// Element Counter
+
+	  
+  
+   $('.flux_tabs_page_wrapper h2').each(function(i){ 
+    
+   
+   	var $set = $(this).nextUntil("h2").addBack();
+    
+    $set.wrapAll('<div class="flux-post" />');
+    
+    var newClass = "tab-" + i++;
+    
+    $(this).parent().addClass(newClass);
+    
+    	//$('.flux-post:first').addClass("tab-one");
+    	
+	
+	});
+
+
+	
+	var fluxhtml = '<div class="button_wrapper"><div id="button_isotope_wrapper" class="button-group">';
+	
+	
+			fluxhtml += '<button data-filter-name="tab-0" data-filter=".tab-0">Button 1</button>';
+			fluxhtml += '<button data-filter-name="tab-1" data-filter=".tab-1">Button 2</button>';
+			fluxhtml += '<button data-filter-name="tab-2" data-filter=".tab-2">Button 3</button>';
+			fluxhtml += '<button data-filter-name="tab-3" data-filter=".tab-3">Button 4</button>';
+			fluxhtml += '<button data-filter-name="tab-4" data-filter=".tab-4">Button 5</button>';
+	
+	
+			fluxhtml += '</div><button id="clearall">Clear Filters</button></div>';
+	
+	
+			$('.flux_tabs_page_wrapper #isotope').before(fluxhtml);
+
+
+
+
+
+// handles images
+
+
+
 
 var $container = $('#isotope').imagesLoaded( function() {
 
@@ -48,39 +96,9 @@ var $container = $('#isotope').imagesLoaded( function() {
 var filters = [];
 
 
-
-// filter items on button click
-
-	 
-	// i dont think i need this in a fuction because it will fire on click anyways I think i need to create a new event listener wrapped in fucntion and make appened html is being included
-	 
-
-	
-		
-	 // Static Pages
-  
-  
-  $('.flux_tabs_page_wrapper h2').each(function(){ 
-    
-    var $set = $(this).nextUntil("h2").addBack();
-    
-    $set.wrapAll('<div class="flux-post" />');
-    
-    	$('.flux-post:first').addClass("tab-one");
-    	$('.flux-post:last').addClass("tab-five");
-	
-	});
-
-	
-	var fluxhtml = '<div class="button_wrapper"><div id="button_isotope_wrapper" class="button-group"><button data-filter-name="tab-one" data-filter=".tab-one">Button 1</button><button data-filter-name="tab-two" data-filter=".tab-two">Button 2</button><button data-filter-name="tab-three" data-filter=".tab-three">Button 3</button><button data-filter-name="tab-four" data-filter=".tab-four">Button 4</button></div><button id="clearall">Clear Filters</button></div><!-- button_wrapper -->';
 	
 	
-	$('#isotope').before(fluxhtml);
-
-
-	
-	
-	// All Tabs
+	// filter items on button click
 	
 	
 	
