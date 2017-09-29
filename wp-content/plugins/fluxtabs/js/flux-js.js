@@ -50,7 +50,10 @@ jQuery(document).ready(function(){
     
     $(this).parent().addClass(newClass);
     
-    	//$('.flux-post:first').addClass("tab-one");
+    // $('#button_isotope_wrapper').append('<button data-filter-name="'+newClass+'" data-filter=".'+newClass+'">Button 1</button>');
+    	
+    
+    	
     	
 	
 	});
@@ -60,11 +63,15 @@ jQuery(document).ready(function(){
 	var fluxhtml = '<div class="button_wrapper"><div id="button_isotope_wrapper" class="button-group">';
 	
 	
+			
+			
+
 			fluxhtml += '<button data-filter-name="tab-0" data-filter=".tab-0">Button 1</button>';
 			fluxhtml += '<button data-filter-name="tab-1" data-filter=".tab-1">Button 2</button>';
 			fluxhtml += '<button data-filter-name="tab-2" data-filter=".tab-2">Button 3</button>';
 			fluxhtml += '<button data-filter-name="tab-3" data-filter=".tab-3">Button 4</button>';
 			fluxhtml += '<button data-filter-name="tab-4" data-filter=".tab-4">Button 5</button>';
+
 	
 	
 			fluxhtml += '</div><button id="clearall">Clear Filters</button></div>';
