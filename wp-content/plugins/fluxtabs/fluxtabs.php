@@ -70,7 +70,12 @@ if ( ! function_exists( 'flux_tabs' ) ) {
     
     
  }
-	
+ 
+ 
+ 
+ 
+ 
+
 
 // Posts Shortcode
 
@@ -87,13 +92,29 @@ function flux_posts_shortcode( $atts, $content = null ) {
 
 
 		global $wp_query,
-        	 $post;
+					$post;
 
 		$atts = shortcode_atts( array(
-       'feed' => ''
+       'feed' => 'post',
+       'font-size' => '16px',
+       'background' => '#000',
+       'font-family' => 'helvetica',
+       'color' => '#fff',
+       'text-transform' => 'uppercase',
+       'font-weight' => 'bold'
     ), $atts );
-
-	?>
+    
+    
+    // wrap in if
+    
+    $font_size = $atts['font-size'];
+    $background =  $atts['background'];
+    $font_family = $atts['font-family'];
+    $color =  $atts['color'];
+    $text_transform = $atts['text-transform'];
+    $font_weight = $atts['font-weight'];
+	    
+   ?>
     
   
   <div class="button_wrapper">
@@ -116,7 +137,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 			
 					foreach($buttontags as $buttontag) { 
 				
-						print '<button data-filter-name="tag-'.$buttontag->slug.'" data-filter=".tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+						print '<button style="font-weight:'.$font_weight.'; text-transform:'.$text_transform.'; color:'.$color.'; font-family:'.$font_family.'; background:'.$background.'; font-size:'.$font_size.'; font-family:'.$font_family.';" data-filter-name="tag-'.$buttontag->slug.'" data-filter=".tag-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
 			
 					}
 				
@@ -149,7 +170,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 			
 					foreach($buttontags as $buttontag) { 
 				
-						print '<button data-filter-name="'.$myarray[0].'-'.$buttontag->slug.'" data-filter=".'.$myarray[0].'-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
+						print '<button style="font-weight:'.$font_weight.'; text-transform:'.$text_transform.'; color:'.$color.'; font-family:'.$font_family.'; background:'.$background.'; font-size:'.$font_size.'; font-family:'.$font_family.';" data-filter-name="'.$myarray[0].'-'.$buttontag->slug.'" data-filter=".'.$myarray[0].'-'.$buttontag->slug.'">'. $buttontag->name.'</button>';
 			
 					}
 					
@@ -160,7 +181,13 @@ function flux_posts_shortcode( $atts, $content = null ) {
 		</div><!-- button-group -->
 	
 	
-		<button id="clearall">Clear Filters</button>
+		<?php print '<button id="clearall" style="color:#fff; text-transform:'.$text_transform.'; font-family:'.$font_family.'; font-size:'.$font_size.'; font-weight:'.$font_weight.';">Clear Filters</button>';?>
+		
+		
+
+		
+		
+		
 	
 	
 	</div><!-- button_wrapper -->
@@ -220,17 +247,23 @@ if ( ! function_exists( 'flux_static_page_shortcode' ) ) {
 		
 		
 		$atts = shortcode_atts( array(
-       'selector' => 'h2',
-       ), $atts ); ?>
+       'selector' => '',
+       ), $atts ); 
 	
 	
 
-		
+	// How will this Vairable get pushed to my Jquery File ?? 
+	
+	 // $go = sanitize_title( $atts['selector'] );
+
+		// echo $go;?>
 		
 		<div class="flux_tabs_page_wrapper">
 			
 					
 			<div id="isotope">
+				
+				
 			
 				<?php echo $content;?>
 			
@@ -362,6 +395,27 @@ if ( !function_exists( 'flux_tabs_tinymce_extra_vars' ) ) {
 add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 
 
+// CSS
+
+
+add_action( 'wp_head', 'internal_css_print' );
+
+function internal_css_print() {
+	
+	global $atts;
+  
+  echo '<style type="text/css">
+  
+.button_wrapper{text-align:left;margin-bottom:35px}.button_wrapper button{border:none;padding:8px 20px;margin-bottom:4px;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px}.button_wrapper button#clearall{background:#7d7d7d}.button_wrapper button#clearall:hover{background:#7c7c7c}.button_wrapper button.active{background:#ed1d24}button.active, button:hover {background:grey !important;}
+
+
+</style>';
+
+
+} 
+
+
+
 // JS
 
 
@@ -377,22 +431,6 @@ function flux_js() {
 add_action('wp_enqueue_scripts', 'flux_js');
 
 
-// CSS
-
-
-add_action( 'wp_head', 'internal_css_print' );
-
-function internal_css_print() {
-  
-  echo '<style type="text/css">
-  
-.button_wrapper{text-align:left;margin-bottom:35px}.button_wrapper button{background:#000;color:#fff;border:none;text-transform:uppercase;font-weight:bold;font-family:helvetica;font-size:14px;padding:8px 20px;margin-bottom:4px;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px}.button_wrapper button:hover{background:#ed1d24}.button_wrapper button#clearall{background:grey}.button_wrapper button#clearall:hover{background:#ed1d24}.button_wrapper button.active{background:#ed1d24}
-
-
-</style>';
-
-
-} 
 
 
 /*
