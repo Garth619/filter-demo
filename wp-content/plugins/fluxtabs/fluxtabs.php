@@ -572,5 +572,3 @@ function myplugin_field_3_input() {
 }
 
 
-
-
