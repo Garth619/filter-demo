@@ -3,7 +3,7 @@
 /*
 Plugin Name: Flux Tabs
 Plugin URI:  http://www.1point21interactive.com
-Description: Creates Filtered Tabs for Posts/Custom Post Types based on Tags. Can also set up tabs for sections on Static Pages.
+Description: Creates Filtered Tabs for Posts/Custom Post Types based on Tags.
 Version:     1.0
 Author:      Garrett Cullen
 Author URI:  http://www.1point21interactive.com
@@ -35,8 +35,8 @@ if ( ! function_exists( 'flux_tabs' ) ) {
   function flux_tabs() { 
 	  $rename_cpt = get_option('myplugin_field_cpt');   
     	$args = array(    
-        	'label' => __('Flux Tabs'),    
-        	'singular_label' => __('Flux Tab'),    
+        	'label' => __('Flux Tabs CPT'),    
+        	'singular_label' => __('Flux Tab CPT'),    
         	'public' => true,    
         	'show_ui' => true,
         	'has_archive' => false,	 
@@ -167,12 +167,6 @@ function flux_posts_shortcode( $atts, $content = null ) {
 		<?php print '<button id="clearall">Clear Filters</button>';?>
 		
 		
-
-		
-		
-		
-	
-	
 	</div><!-- button_wrapper -->
     
     
@@ -383,16 +377,9 @@ add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 
 // Settings
 
-// https://konstantin.blog/2012/the-wordpress-settings-api/
-
-// Example Two
 
 
-// https://codesymphony.co/using-the-wordpress-settings-api/
 
-/** Set Defaults **/
-// add_option( 'myplugin_field_1', 'some default value' );
-//add_option( 'myplugin_field_2', '30' );
 
 add_option( 'myplugin_field_cpt', 'flux_tabs' );
 
@@ -406,15 +393,15 @@ add_option( 'myplugin_field_2', 'uppercase' );
 add_option( 'myplugin_field_8', '15px' );
 add_option( 'myplugin_field_9', 'bold' );
  
-/** Add Settings Page **/
+
 function myplugin_settings_menu() {
  
     add_options_page(
-    /*1*/   'Flux Tabs Settings',
-    /*2*/   'Flux Tabs',
-    /*3*/   'manage_options',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_page'
+       'Flux Tabs Settings',
+       'Flux Tabs',
+       'manage_options',
+       'myplugin_settings',
+       'myplugin_settings_page'
     );
  
 }
@@ -422,7 +409,7 @@ add_action( 'admin_menu', 'myplugin_settings_menu' );
  
 
  
-/** Settings Page Content **/
+
 function myplugin_settings_page() {
  
     ?>
@@ -431,149 +418,181 @@ function myplugin_settings_page() {
        
  
         <h2>Flux Tabs</h2>
-        <p>Some text describing what the plugin settings do.</p>
+       
+        <p>Flux Tabs allow you to filter through Posts based on Tags.</p>
+        
+        <p>To Use:</p>
+        
+        <ul>
+	        <li>1. Create Posts for your blog and assign various Tags to each Post.</li>
+	        <li>2. Create a static Page.</li>
+	        <li>3. Look for the 1P21 Button on the Page's Rich Text Editor and add a Shortcode.</li>
+	        <li>4. Click Update, enjoy.</li>
+        </ul>
+        
+        <h3>Custom Post Types</h3>
+        
+        <p>If you don't want to use your blog, Flux Tabs comes with one registered custom post type for you to use. You can turn it on and rename it below.<br/><br/><i>Future releases of Flux Tabs will allow for unlimited Custom Post Types to be used.</p>
  
         <form method="post" action="options.php">
+            
             <?php
  
-            // Output the settings sections.
+           
             do_settings_sections( 'myplugin_settings' );
  
-            // Output the hidden fields, nonce, etc.
+           
             settings_fields( 'myplugin_settings_group' );
  
-            // Submit button.
+            
             submit_button();
  
             ?>
+            
         </form>
     </div>
  
     <?php
 }
  
-/** Settings Initialization **/
+
 function myplugin_settings_init() {
+ 		
+ 		
+ 		add_settings_section(
+       'myplugin_settings_section_1',
+       '',
+			 'myplugin_settings_section_1_callback',
+       'myplugin_settings'
+    );
+    
+    
+    function myplugin_settings_section_1_callback() {
  
+    echo( 'CPT Verbaige' );
+}
+ 		
+ 		
+ 		
           
-   /** Section 2 **/
+  
     add_settings_section(
-    /*1*/   'myplugin_settings_section_2',
-    /*2*/   'CSS Styles',
-    /*3*/   'myplugin_settings_section_2_callback',
-    /*4*/   'myplugin_settings'
+       'myplugin_settings_section_2',
+       'CSS Styles',
+			 'myplugin_settings_section_2_callback',
+       'myplugin_settings'
     );
      
      
-    // Field CPT.
+    
     add_settings_field(
-    /*1*/   'myplugin_field_cpt',
-    /*2*/   'Rename Custom Post Type',
-    /*3*/   'myplugin_field_cpt_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+       'myplugin_field_cpt',
+       'Rename Custom Post Type',
+       'myplugin_field_cpt_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
     );
  
-    // Register this field with our settings group.
+    
     register_setting( 'myplugin_settings_group', 'myplugin_field_cpt' );
      
      
-    // Field 3.
+    
     add_settings_field(
-    /*1*/   'myplugin_field_3',
-    /*2*/   'Background Color',
-    /*3*/   'myplugin_field_3_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+       'myplugin_field_3',
+       'Background Color',
+       'myplugin_field_3_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
     );
  
-    // Register this field with our settings group.
+    
     register_setting( 'myplugin_settings_group', 'myplugin_field_3' );
     
     
-    // Field 4.
+    
     add_settings_field(
-    /*1*/   'myplugin_field_4',
-    /*2*/   'Background Hover Color',
-    /*3*/   'myplugin_field_4_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+       'myplugin_field_4',
+       'Background Hover Color',
+       'myplugin_field_4_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
     );
     
-     // Register this field with our settings group.
+     
     register_setting( 'myplugin_settings_group', 'myplugin_field_4' );
     
-    // Field 5.
+    
     add_settings_field(
-    /*1*/   'myplugin_field_5',
-    /*2*/   'Font Family',
-    /*3*/   'myplugin_field_5_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+       'myplugin_field_5',
+       'Font Family',
+       'myplugin_field_5_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
     );
     
-    // Register this field with our settings group.
+    
     register_setting( 'myplugin_settings_group', 'myplugin_field_5' );
     
-    // Field 6.
+    
     add_settings_field(
-    /*1*/   'myplugin_field_6',
-    /*2*/   'Text Color',
-    /*3*/   'myplugin_field_6_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+       'myplugin_field_6',
+       'Text Color',
+       'myplugin_field_6_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
     );
     
-    // Register this field with our settings group.
+    
     register_setting( 'myplugin_settings_group', 'myplugin_field_6' );
     
-     // Field 7.
+   
     add_settings_field(
-    /*1*/   'myplugin_field_7',
-    /*2*/   'Text Hover Color',
-    /*3*/   'myplugin_field_7_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+       'myplugin_field_7',
+       'Text Hover Color',
+       'myplugin_field_7_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
     );
     
-    // Register this field with our settings group.
+    
     register_setting( 'myplugin_settings_group', 'myplugin_field_7' );
     
-    // Field 8.
+    
     add_settings_field(
-    /*1*/   'myplugin_field_8',
-    /*2*/   'Font Size',
-    /*3*/   'myplugin_field_8_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+       'myplugin_field_8',
+       'Font Size',
+       'myplugin_field_8_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
     );
  
-    // Register this field with our settings group.
+    
     register_setting( 'myplugin_settings_group', 'myplugin_field_8' );
     
-    // Field 2.
+    
     add_settings_field(
-    /*1*/   'myplugin_field_2',
-    /*2*/   'Text Transform',
-    /*3*/   'myplugin_field_2_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+       'myplugin_field_2',
+       'Text Transform',
+       'myplugin_field_2_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
     );
  
-    // Register this field with our settings group.
+    
     register_setting( 'myplugin_settings_group', 'myplugin_field_2' ); 
     
     
-     // Field 9.
+     
     add_settings_field(
-    /*1*/   'myplugin_field_9',
-    /*2*/   'Font Weight',
-    /*3*/   'myplugin_field_9_input',
-    /*4*/   'myplugin_settings',
-    /*5*/   'myplugin_settings_section_2'
+      'myplugin_field_9',
+      'Font Weight',
+      'myplugin_field_9_input',
+      'myplugin_settings',
+      'myplugin_settings_section_2'
     );
  
-    // Register this field with our settings group.
+    
     register_setting( 'myplugin_settings_group', 'myplugin_field_9' ); 
     
     
@@ -587,28 +606,27 @@ function myplugin_settings_section_2_callback() {
 }
  
 
-/** Field 2 Input **/
+
 function myplugin_field_2_input() {
  
-    // This example input will be a dropdown.
-    // Available options.
+    
     $options = array(
         'uppercase' => 'Uppercase',
         'lowercase' => 'Lowercase',
         'capitalized' => 'Capitalized'
     );
      
-    // Current setting.
+    
     $current = get_option( 'myplugin_field_2' );
      
-    // Build <select> element.
+    
     $html = '<select id="myplugin_field_2" name="myplugin_field_2">';
  
     foreach ( $options as $value => $text )
     {
         $html .= '<option value="'. $value .'"';
  
-        // We make sure the current options selected.
+        
         if ( $value == $current ) $html .= ' selected="selected"';
  
         $html .= '>'. $text .'</option>';
@@ -620,84 +638,83 @@ function myplugin_field_2_input() {
 }
 
 
-/** Field cpt Input **/
+
 function myplugin_field_cpt_input() {
  
-    // Output the form input, with the current setting as the value.
+    
     echo( '<input type="text" name="myplugin_field_cpt" id="myplugin_field_cpt" value="'. get_option( 'myplugin_field_cpt' ) .'" />' ); 
 }
 
 
  
-/** Field 3 Input **/
+
 function myplugin_field_3_input() {
  
-    // Output the form input, with the current setting as the value.
+    
     echo( '<input type="text" name="myplugin_field_3" id="myplugin_field_3" value="'. get_option( 'myplugin_field_3' ) .'" />' ); 
 }
 
 
-/** Field 4 Input **/
+
 function myplugin_field_4_input() {
  
-    // Output the form input, with the current setting as the value.
+    
     echo( '<input type="text" name="myplugin_field_4" id="myplugin_field_4" value="'. get_option( 'myplugin_field_4' ) .'" />' ); 
 }
 
-/** Field 5 Input **/
+
 function myplugin_field_5_input() {
  
-    // Output the form input, with the current setting as the value.
+    
     echo( '<input type="text" name="myplugin_field_5" id="myplugin_field_5" value="'. get_option( 'myplugin_field_5' ) .'" />' ); 
 }
 
 
-/** Field 6 Input **/
+
 function myplugin_field_6_input() {
  
-    // Output the form input, with the current setting as the value.
+    
     echo( '<input type="text" name="myplugin_field_6" id="myplugin_field_6" value="'. get_option( 'myplugin_field_6' ) .'" />' ); 
 }
 
 
 
-/** Field 7 Input **/
+
 function myplugin_field_7_input() {
  
-    // Output the form input, with the current setting as the value.
+    
     echo( '<input type="text" name="myplugin_field_7" id="myplugin_field_7" value="'. get_option( 'myplugin_field_7' ) .'" />' ); 
 }
 
 
-/** Field 8 Input **/
+
 function myplugin_field_8_input() {
  
-    // Output the form input, with the current setting as the value.
+    
     echo( '<input type="text" name="myplugin_field_8" id="myplugin_field_8" value="'. get_option( 'myplugin_field_8' ) .'" />' ); 
 }
 
 
-/** Field 9 Input **/
+
 function myplugin_field_9_input() {
  
-    // This example input will be a dropdown.
-    // Available options.
+   
     $options = array(
         'bold' => 'Bold',
         'normal' => 'Normal'
      );
      
-    // Current setting.
+    
     $current = get_option( 'myplugin_field_9' );
      
-    // Build <select> element.
+   
     $html = '<select id="myplugin_field_9" name="myplugin_field_9">';
  
     foreach ( $options as $value => $text )
     {
         $html .= '<option value="'. $value .'"';
  
-        // We make sure the current options selected.
+        
         if ( $value == $current ) $html .= ' selected="selected"';
  
         $html .= '>'. $text .'</option>';
