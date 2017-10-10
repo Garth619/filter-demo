@@ -11,7 +11,7 @@
 
 <?php if(get_option('demo-radio') == 2) {
 	
-echo "test";
+
 
 
 }?>
