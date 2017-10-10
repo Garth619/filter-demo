@@ -382,6 +382,7 @@ add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 
 
 add_option( 'myplugin_field_cpt', 'flux_tabs' );
+add_option( 'demo-radio', 1 );
 
 
 add_option( 'myplugin_field_3', '#000000' );
@@ -421,7 +422,7 @@ function myplugin_settings_page() {
        
         <p>Flux Tabs allow you to filter through Posts based on Tags.</p>
         
-        <p>To Use:</p>
+        <p><strong>To Use:</strong></p>
         
         <ul>
 	        <li>1. Create Posts for your blog and assign various Tags to each Post.</li>
@@ -430,10 +431,8 @@ function myplugin_settings_page() {
 	        <li>4. Click Update, enjoy.</li>
         </ul>
         
-        <h3>Custom Post Types</h3>
+        <hr style="margin:25px 0;">
         
-        <p>If you don't want to use your blog, Flux Tabs comes with one registered custom post type for you to use. You can turn it on and rename it below.<br/><br/><i>Future releases of Flux Tabs will allow for unlimited Custom Post Types to be used.</p>
- 
         <form method="post" action="options.php">
             
             <?php
@@ -446,6 +445,8 @@ function myplugin_settings_page() {
  
             
             submit_button();
+            
+            //flush_rewrite_rules();
  
             ?>
             
@@ -461,43 +462,60 @@ function myplugin_settings_init() {
  		
  		add_settings_section(
        'myplugin_settings_section_1',
-       '',
+       'Custom Post Type',
 			 'myplugin_settings_section_1_callback',
        'myplugin_settings'
     );
     
     
-    function myplugin_settings_section_1_callback() {
+    function myplugin_settings_section_1_callback() { ?>
  
-    echo( 'CPT Verbaige' );
-}
+    <p>If you don't want to use your blog, Flux Tabs comes with one registered Custom Post Type for you to use. You can rename it below.</p>
+	  
+	  <p><i><strong style="color:red">Note: After you rename this Custom Post Type and hit Save Changes below, go to Settings --> Permalinks and click Save Changes.</strong> This will initiate your new Custom Post Type Name. Otherwise you will get 404 errors. For more information: <a href="https://typerocket.com/flushing-permalinks-in-wordpress/" target="_blank">Flushing Permalinks in Wordpress</a></i></p>
+	  
+	 
+	  
+	  <p><i>Future releases of Flux Tabs will allow for unlimited Custom Post Types to be used/created.</i></p>
+
+
+<?php }
+	
+	
+	
+		add_settings_field(
+    	"demo-radio",
+    	"Disable Custom Post Type",
+    	"demo_radio_display",
+    	"myplugin_settings",
+    	"myplugin_settings_section_1");  
+    
+    
+    register_setting("myplugin_settings_group", "demo-radio");
  		
- 		
- 		
-          
-  
-    add_settings_section(
+ 		add_settings_field(
+       'myplugin_field_cpt',
+       'Rename Custom Post Type',
+       'myplugin_field_cpt_input',
+       'myplugin_settings',
+       'myplugin_settings_section_1'
+    );
+    
+    
+    register_setting( 'myplugin_settings_group', 'myplugin_field_cpt' );
+    
+    
+		add_settings_section(
        'myplugin_settings_section_2',
-       'CSS Styles',
+       '<hr style="margin-bottom:25px;">CSS Styles',
 			 'myplugin_settings_section_2_callback',
        'myplugin_settings'
     );
      
      
     
-    add_settings_field(
-       'myplugin_field_cpt',
-       'Rename Custom Post Type',
-       'myplugin_field_cpt_input',
-       'myplugin_settings',
-       'myplugin_settings_section_2'
-    );
  
-    
-    register_setting( 'myplugin_settings_group', 'myplugin_field_cpt' );
-     
-     
-    
+ 
     add_settings_field(
        'myplugin_field_3',
        'Background Color',
@@ -642,11 +660,47 @@ function myplugin_field_2_input() {
 function myplugin_field_cpt_input() {
  
     
-    echo( '<input type="text" name="myplugin_field_cpt" id="myplugin_field_cpt" value="'. get_option( 'myplugin_field_cpt' ) .'" />' ); 
+    echo( '<input type="text" name="myplugin_field_cpt" id="myplugin_field_cpt" value="'. get_option( 'myplugin_field_cpt' ) .'" /> <br/>' ); 
 }
 
 
- 
+   function demo_radio_display()
+			{
+   		?>
+        <input type="radio" name="demo-radio" value="1" <?php checked(1, get_option('demo-radio'), true); ?>>Enable Custom Post Type<br/>
+        <input id="radio_two" type="radio" name="demo-radio" value="2" <?php checked(2, get_option('demo-radio'), true); ?>>Disable Custom Post Type
+        
+        <script type="text/javascript">
+        
+        jQuery(document).ready(function(){
+        
+        
+        	
+        
+        
+        }); // Document Ready
+        
+        </script>
+        
+        
+   <?php
+}
+
+
+
+if(get_option('demo-radio') == 2) {
+	
+	function delete_post_type(){
+  
+  	unregister_post_type( 'flux_tabs' );
+}
+
+
+	add_action('init','delete_post_type', 100);
+
+
+}
+
 
 function myplugin_field_3_input() {
  
@@ -771,5 +825,12 @@ function flux_js() {
 
 
 add_action('wp_enqueue_scripts', 'flux_js');
+
+
+
+function myplugin_deactivate() {
+    flush_rewrite_rules();
+}
+register_deactivation_hook( __FILE__, 'myplugin_deactivate' );
 
 

@@ -9,8 +9,12 @@
 
 </div><!-- container -->
 
+<?php if(get_option('demo-radio') == 2) {
+	
+echo "test";
 
 
+}?>
 
 
 <?php //use get_template_part( 'loop', 'page' ) if needed ?>
