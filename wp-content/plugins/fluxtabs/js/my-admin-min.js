@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){jQuery("#radio_two").on("click",function(n){jQuery("#myplugin_field_cpt, span.rename_cpt").fadeOut()}),jQuery("#radio_one").on("click",function(n){jQuery("#myplugin_field_cpt, span.rename_cpt").fadeIn()})});

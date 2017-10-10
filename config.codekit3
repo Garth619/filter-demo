@@ -4729,6 +4729,16 @@
 		"sC": 3,
 		"tS": 0
 		},
+	"\/wp-content\/plugins\/fluxtabs\/js\/my-admin.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/my-admin-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/wp-content\/plugins\/fluxtabs\/js\/tinymce_buttons copy.js": {
 		"ft": 64,
 		"ma": 0,

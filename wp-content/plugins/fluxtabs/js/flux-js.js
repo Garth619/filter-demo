@@ -152,14 +152,7 @@ var filters = [];
   
   
   
-  // Settings Hide Custom Post Type Rename
-  
-  
-  $('#radio_two').on('click', function(e) {
-	        	
-	  $('#myplugin_field_cpt').fadeOut();
-        	  
-  });
+ 
   
 
   

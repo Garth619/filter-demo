@@ -397,6 +397,10 @@ add_option( 'myplugin_field_9', 'bold' );
 
 function myplugin_settings_menu() {
  
+    global $flux_settings_page;
+    
+    $flux_settings_page =
+    
     add_options_page(
        'Flux Tabs Settings',
        'Flux Tabs',
@@ -407,6 +411,27 @@ function myplugin_settings_menu() {
  
 }
 add_action( 'admin_menu', 'myplugin_settings_menu' );
+
+
+
+// Load JS Scripts on the settings page
+
+
+function flux_admin_load_scripts($hook) {
+ 
+	global $flux_settings_page;
+ 
+	if( $hook != $flux_settings_page ) 
+		return;
+ 
+	// wp_enqueue_script( 'myadmin-js', plugins_url( '/js/my-admin-min.js' , dirname(__FILE__) ) );
+	
+	wp_enqueue_script( 'myadmin-js', plugin_dir_url( __FILE__ ) . 'js/my-admin-min.js', array('jquery'), '1.0', false );
+	
+}
+
+
+add_action('admin_enqueue_scripts', 'flux_admin_load_scripts');
  
 
  
@@ -495,7 +520,7 @@ function myplugin_settings_init() {
  		
  		add_settings_field(
        'myplugin_field_cpt',
-       'Rename Custom Post Type',
+       '<span class="rename_cpt">Rename Custom Post Type</span>',
        'myplugin_field_cpt_input',
        'myplugin_settings',
        'myplugin_settings_section_1'
@@ -513,10 +538,7 @@ function myplugin_settings_init() {
     );
      
      
-    
- 
- 
-    add_settings_field(
+		add_settings_field(
        'myplugin_field_3',
        'Background Color',
        'myplugin_field_3_input',
@@ -667,23 +689,10 @@ function myplugin_field_cpt_input() {
    function demo_radio_display()
 			{
    		?>
-        <input type="radio" name="demo-radio" value="1" <?php checked(1, get_option('demo-radio'), true); ?>>Enable Custom Post Type<br/>
+        <input id="radio_one" type="radio" name="demo-radio" value="1" <?php checked(1, get_option('demo-radio'), true); ?>>Enable Custom Post Type<br/>
         <input id="radio_two" type="radio" name="demo-radio" value="2" <?php checked(2, get_option('demo-radio'), true); ?>>Disable Custom Post Type
         
-        <script type="text/javascript">
-        
-        jQuery(document).ready(function(){
-        
-        
-        	
-        
-        
-        }); // Document Ready
-        
-        </script>
-        
-        
-   <?php
+      <?php
 }
 
 
