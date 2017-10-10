@@ -383,8 +383,6 @@ add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 
 add_option( 'myplugin_field_cpt', 'flux_tabs' );
 add_option( 'demo-radio', 1 );
-
-
 add_option( 'myplugin_field_3', '#000000' );
 add_option( 'myplugin_field_4', '#969696' );
 add_option( 'myplugin_field_5', 'arial' );
@@ -495,13 +493,16 @@ function myplugin_settings_init() {
     
     function myplugin_settings_section_1_callback() { ?>
  
-    <p>If you don't want to use your blog, Flux Tabs comes with one registered Custom Post Type for you to use. You can rename it below.</p>
-	  
+    <p>If you don't want to use your blog, Flux Tabs comes with one registered Custom Post Type for you to use. You can rename it or disable it below.</p>
+    
+   
+    	  
 	  <p><i><strong style="color:red">Note: After you rename this Custom Post Type and hit Save Changes below, go to Settings --> Permalinks and click Save Changes.</strong> This will initiate your new Custom Post Type Name. Otherwise you will get 404 errors. For more information: <a href="https://typerocket.com/flushing-permalinks-in-wordpress/" target="_blank">Flushing Permalinks in Wordpress</a></i></p>
 	  
 	 
 	  
 	  <p><i>Future releases of Flux Tabs will allow for unlimited Custom Post Types to be used/created.</i></p>
+	  
 
 
 <?php }
@@ -642,7 +643,7 @@ add_action( 'admin_init', 'myplugin_settings_init' );
  
 function myplugin_settings_section_2_callback() {
  
-    echo( 'Change the settings below to change the styles of any Flux Tabs that you create' );
+    echo( 'Change the settings below to change the styles of any Flux Tabs that you create.' );
 }
  
 
