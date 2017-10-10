@@ -30,7 +30,10 @@ if ( ! function_exists( 'flux_tabs' ) ) {
   
   add_action('init', 'flux_tabs');
   
-  function flux_tabs() {    
+  
+  
+  function flux_tabs() { 
+	  $rename_cpt = get_option('myplugin_field_cpt');   
     	$args = array(    
         	'label' => __('Flux Tabs'),    
         	'singular_label' => __('Flux Tab'),    
@@ -39,8 +42,8 @@ if ( ! function_exists( 'flux_tabs' ) ) {
         	'has_archive' => false,	 
         	'capability_type' => 'post',    
         	'hierarchical' => false,    
-        	'rewrite' => true,    
-        	'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
+        	'rewrite' => array('with_front' => false,'slug' => $rename_cpt),
+					'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
        	);    
    	 
     	register_post_type( 'flux_tabs' , $args );
@@ -390,6 +393,10 @@ add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 /** Set Defaults **/
 // add_option( 'myplugin_field_1', 'some default value' );
 //add_option( 'myplugin_field_2', '30' );
+
+add_option( 'myplugin_field_cpt', 'flux_tabs' );
+
+
 add_option( 'myplugin_field_3', '#000000' );
 add_option( 'myplugin_field_4', '#969696' );
 add_option( 'myplugin_field_5', 'arial' );
@@ -457,6 +464,18 @@ function myplugin_settings_init() {
     /*4*/   'myplugin_settings'
     );
      
+     
+    // Field CPT.
+    add_settings_field(
+    /*1*/   'myplugin_field_cpt',
+    /*2*/   'Rename Custom Post Type',
+    /*3*/   'myplugin_field_cpt_input',
+    /*4*/   'myplugin_settings',
+    /*5*/   'myplugin_settings_section_2'
+    );
+ 
+    // Register this field with our settings group.
+    register_setting( 'myplugin_settings_group', 'myplugin_field_cpt' );
      
      
     // Field 3.
@@ -599,6 +618,16 @@ function myplugin_field_2_input() {
  
     echo( $html );  
 }
+
+
+/** Field cpt Input **/
+function myplugin_field_cpt_input() {
+ 
+    // Output the form input, with the current setting as the value.
+    echo( '<input type="text" name="myplugin_field_cpt" id="myplugin_field_cpt" value="'. get_option( 'myplugin_field_cpt' ) .'" />' ); 
+}
+
+
  
 /** Field 3 Input **/
 function myplugin_field_3_input() {
