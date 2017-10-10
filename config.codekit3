@@ -4,7 +4,7 @@
 	{
 		"name": "Process All Remaining Files and Folders",
 		"stepType": 1,
-		"uuidString": "61F5D031-7DCA-4743-A437-9C960A5AF16A"
+		"uuidString": "EB8FECCE-2813-4CDD-82A8-41855E6763D0"
 		}
 	],
 "creatorBuild": "25900",
@@ -25,18 +25,6 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/index.php",
-		"oF": 0
-		},
-	"\/license.txt": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/license.txt",
-		"oF": 0
-		},
-	"\/readme.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/readme.html",
 		"oF": 0
 		},
 	"\/wp-activate.php": {
@@ -4660,39 +4648,45 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/wp-content\/plugins\/fluxtabs\/css\/style.css": {
+	"\/wp-content\/plugins\/fluxtabs\/css-trash\/style.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/wp-content\/plugins\/fluxtabs\/css\/style-min.css",
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/css-trash\/style-min.css",
 		"oF": 0,
 		"oS": 3
 		},
-	"\/wp-content\/plugins\/fluxtabs\/css\/style.css.map": {
+	"\/wp-content\/plugins\/fluxtabs\/css-trash\/style.css.map": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/wp-content\/plugins\/fluxtabs\/css\/style.css.map",
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/css-trash\/style.css.map",
 		"oF": 0
 		},
-	"\/wp-content\/plugins\/fluxtabs\/css\/style.scss": {
-		"aP": 1,
+	"\/wp-content\/plugins\/fluxtabs\/css-trash\/style.scss": {
+		"aP": 0,
 		"bl": 0,
 		"dP": 10,
 		"dS": 0,
 		"ft": 4,
-		"ma": 1,
+		"ma": 0,
 		"oA": 0,
-		"oAP": "\/wp-content\/plugins\/fluxtabs\/css\/style.css",
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/css-trash\/style.css",
 		"oF": 0,
-		"oS": 3,
+		"oS": 0,
 		"uL": 1
 		},
 	"\/wp-content\/plugins\/fluxtabs\/fluxtabs.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/wp-content\/plugins\/fluxtabs\/fluxtabs.php",
+		"oF": 0
+		},
+	"\/wp-content\/plugins\/fluxtabs\/js\/copy.php.og": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/copy.php.og",
 		"oF": 0
 		},
 	"\/wp-content\/plugins\/fluxtabs\/js\/flux-js copy.js": {
@@ -4722,7 +4716,7 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/flux-js-min.js",
 		"oF": 0,
-		"sC": 0,
+		"sC": 3,
 		"tS": 0
 		},
 	"\/wp-content\/plugins\/fluxtabs\/js\/mce.js": {
@@ -4731,6 +4725,16 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/mce-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/plugins\/fluxtabs\/js\/tinymce_buttons copy.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/js\/tinymce_buttons copy-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -4754,6 +4758,12 @@
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
+		},
+	"\/wp-content\/plugins\/fluxtabs\/settings-bak.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/wp-content\/plugins\/fluxtabs\/settings-bak.php",
+		"oF": 0
 		},
 	"\/wp-content\/plugins\/fluxtabs\/uninstall.php": {
 		"ft": 8192,
@@ -4810,12 +4820,6 @@
 		"oAP": "\/wp-content\/plugins\/friendly-shortcode-buttons\/includes\/images\/icon.gif",
 		"oF": 0,
 		"opt": 0
-		},
-	"\/wp-content\/plugins\/hello.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/wp-content\/plugins\/hello.php",
-		"oF": 0
 		},
 	"\/wp-content\/plugins\/index.php": {
 		"ft": 8192,
@@ -5877,24 +5881,6 @@
 		"oAP": "\/wp-content\/themes\/starter-theme\/style-min.css",
 		"oF": 0,
 		"oS": 3
-		},
-	"\/wp-content\/uploads\/2017\/10\/San-Fran-Animation.mp4": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/wp-content\/uploads\/2017\/10\/San-Fran-Animation.mp4",
-		"oF": 0
-		},
-	"\/wp-content\/uploads\/wp-migrate-db\/.htaccess": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/wp-content\/uploads\/wp-migrate-db\/.htaccess",
-		"oF": 0
-		},
-	"\/wp-content\/uploads\/wp-migrate-db\/index.php": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/wp-content\/uploads\/wp-migrate-db\/index.php",
-		"oF": 0
 		},
 	"\/wp-cron.php": {
 		"ft": 8192,
@@ -12139,14 +12125,14 @@
 "manualImportLinks": {
 	},
 "projectAttributes": {
-	"creationDate": 527708481,
+	"creationDate": 529299026,
 	"displayValue": "filter-demo",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "meme-grumpy"
+	"iconImageName": "meme-jake"
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
-	"alwaysUseExternalServer": 1,
+	"alwaysUseExternalServer": 0,
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
 	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
@@ -13532,7 +13518,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "http:\/\/filter-demo.com",
+	"externalServerAddress": "http:\/\/localhost:8888",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",
