@@ -1,14 +1,5 @@
 <?php
 
-/*
-Plugin Name: Flux Tabs
-Plugin URI:  http://www.1point21interactive.com
-Description: Creates Filtered Tabs for Posts/Custom Post Types based on Tags.
-Version:     1.0
-Author:      Garrett Cullen
-Author URI:  http://www.1point21interactive.com
-*/ 
-
 
 defined( 'ABSPATH' ) OR exit;
 
@@ -19,13 +10,63 @@ register_activation_hook( __FILE__, 'fluxtabs_activation' );
 
 function fluxtabs_activation() {
 			
-	 // flux_tabs();
-	 // flush_rewrite_rules();
+	 flux_tabs();
+	 flush_rewrite_rules();
 	 
 }
 
 
 
+if ( ! function_exists( 'flux_tabs' ) ) {
+  
+  add_action('init', 'flux_tabs');
+  
+  // Register Custom Post Type
+  
+  function flux_tabs() { 
+	  
+	  	$rename_cpt_url = sanitize_title(get_option('myplugin_field_cpt'));  
+			$rename_cpt_title = get_option('myplugin_field_cpt');   
+
+    	$args = array(    
+        	'label' => __($rename_cpt_title),    
+        	'singular_label' => __($rename_cpt_title),    
+        	'public' => true,    
+        	'show_ui' => true,
+        	'has_archive' => false,	 
+        	'capability_type' => 'post',    
+        	'hierarchical' => false,    
+        	'rewrite' => array('with_front' => false,'slug' => $rename_cpt_url),
+					'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
+       	);    
+   	 
+    	register_post_type( 'flux_tabs' , $args );
+    	
+    	// Flux Tab Tags
+    	
+    	register_taxonomy ('flux-tabs-tag',array('flux_tabs'),
+				array (
+        	'hierarchical' => false,
+					'labels' => array (
+            'name' => _x( $rename_cpt_title.' Tags', 'taxonomy general name' ),
+            'singular_name' => _x( $rename_cpt_title.' Tag', 'taxonomy singular name' ),
+            'search_items' =>  __( 'Search '.$rename_cpt_title.' Tags' ),
+            'all_items' => __( 'All '.$rename_cpt_title.' Tags' ),
+            'edit_item' => __( 'Edit '.$rename_cpt_title.' Tag' ), 
+            'update_item' => __( 'Update '.$rename_cpt_title.' Tag' ),
+            'add_new_item' => __( 'Add New '.$rename_cpt_title.' Tag' ),
+            'new_item_name' => __( 'New F'.$rename_cpt_title.'Tag Name' ),
+            'menu_name' => __( $rename_cpt_title.' Tags' ),
+        ),
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'flux-tab-tag', 'with_front' => true),
+				)
+			);
+    } 
+    
+    
+ }
  
  
  
@@ -316,7 +357,7 @@ add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 // Settings API
 
 add_option( 'myplugin_field_cpt', 'Flux Tabs CPT' );
-add_option( 'demo-radio', 2 );
+add_option( 'demo-radio', 1 );
 add_option( 'myplugin_field_3', '#000000' );
 add_option( 'myplugin_field_4', '#969696' );
 add_option( 'myplugin_field_5', 'arial' );
@@ -627,79 +668,6 @@ function myplugin_field_cpt_input() {
         
       <?php
 }
-
-
-
-
-if(get_option('demo-radio') == 1) {
-	
- add_action('init', 'flux_tabs');
-  
-  // Register Custom Post Type
-  
-  function flux_tabs() { 
-	  
-	  	$rename_cpt_url = sanitize_title(get_option('myplugin_field_cpt'));  
-			$rename_cpt_title = get_option('myplugin_field_cpt');   
-
-    	$args = array(    
-        	'label' => __($rename_cpt_title),    
-        	'singular_label' => __($rename_cpt_title),    
-        	'public' => true,    
-        	'show_ui' => true,
-        	'has_archive' => false,	 
-        	'capability_type' => 'post',    
-        	'hierarchical' => false,    
-        	'rewrite' => array('with_front' => false,'slug' => $rename_cpt_url),
-					'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
-       	);    
-   	 
-    	register_post_type( 'flux_tabs' , $args );
-    	
-    	// Flux Tab Tags
-    	
-    	register_taxonomy ('flux-tabs-tag',array('flux_tabs'),
-				array (
-        	'hierarchical' => false,
-					'labels' => array (
-            'name' => _x( $rename_cpt_title.' Tags', 'taxonomy general name' ),
-            'singular_name' => _x( $rename_cpt_title.' Tag', 'taxonomy singular name' ),
-            'search_items' =>  __( 'Search '.$rename_cpt_title.' Tags' ),
-            'all_items' => __( 'All '.$rename_cpt_title.' Tags' ),
-            'edit_item' => __( 'Edit '.$rename_cpt_title.' Tag' ), 
-            'update_item' => __( 'Update '.$rename_cpt_title.' Tag' ),
-            'add_new_item' => __( 'Add New '.$rename_cpt_title.' Tag' ),
-            'new_item_name' => __( 'New F'.$rename_cpt_title.'Tag Name' ),
-            'menu_name' => __( $rename_cpt_title.' Tags' ),
-        ),
-        'show_ui' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'flux-tab-tag', 'with_front' => true),
-				)
-			);
-    } 
-    
-    
-
-
-
-
-}
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
 
 // Deregisters Custom Post Type if radio button selected
 

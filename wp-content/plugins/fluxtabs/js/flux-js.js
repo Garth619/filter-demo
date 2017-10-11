@@ -25,10 +25,7 @@ var e;t?(t=n.makeArray(t),e=this.getItems(t)):e=this.items,this._getSorters(),th
 
 
 
-
-
-
-jQuery(document).ready(function(){
+jQuery(document).ready(function($){
 	
 
 

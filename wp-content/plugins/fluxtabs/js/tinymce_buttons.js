@@ -12,7 +12,7 @@
 	                    	{
                             type   : 'container',
                             name   : 'container',
-                            label  : 'Turn Posts into Filterd Tabs Based on Tags',
+                            label  : '',
                             html   : ''
                         },
 												{
@@ -20,8 +20,8 @@
                             name   : 'mypostlist',
                             label  : 'Choose Your Post Type',
                             values : [
-                                { text: "Blog", value: "post" },
-                                { text: 'Flux Tabs CPT', value: 'flux_tabs' }
+                                { text: "Posts", value: "post" },
+                                { text: 'Custom Post Type', value: 'flux_tabs' }
                                 
                             ],
                             value : 'posts' // Sets the default
