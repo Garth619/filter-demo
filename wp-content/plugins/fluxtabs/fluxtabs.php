@@ -18,17 +18,49 @@ register_activation_hook( __FILE__, 'fluxtabs_activation' );
 // Plugin activation
 
 function fluxtabs_activation() {
-			
+		
+		
+		// add message
+		
+		set_transient( 'flux-tab-admin-notice', true, 5 );
+		
 	 // flux_tabs();
-	 // flush_rewrite_rules();
 	 
+	 
+	 flush_rewrite_rules();
+	 
+}
+
+ 
+add_action( 'admin_notices', 'fx_admin_notice_example_notice' );
+ 
+ 
+function fx_admin_notice_example_notice(){
+ 
+   
+    if( get_transient( 'flux-tab-admin-notice' ) ){
+        ?>
+        <div class="updated notice is-dismissible">
+            <p>Flux Tabs - To begin, go to the <a href="<?php bloginfo('url');?>/wp-admin/options-general.php?page=myplugin_settings">Settings Page.</a></p>
+        </div>
+        <?php
+        
+        delete_transient( 'flux-tab-admin-notice' );
+    }
 }
 
 
 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
 // Posts Shortcode
 
 
@@ -429,7 +461,7 @@ function myplugin_settings_init() {
 	  
 	 
 	  
-<!-- 	  <p><i>Future releases of Flux Tabs will allow for unlimited Custom Post Types to be used/created.</i></p> -->
+<p><i>Future releases of Flux Tabs will allow for unlimited Custom Post Types to be used/created.</i></p>
 	  
 
 
