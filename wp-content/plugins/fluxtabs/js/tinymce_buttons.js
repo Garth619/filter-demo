@@ -21,7 +21,7 @@
                             label  : 'Choose Your Post Type',
                             values : [
                                 { text: "Blog", value: "post" },
-                                { text: 'Flux Tabs', value: 'flux_tabs' }
+                                { text: 'Flux Tabs CPT', value: 'flux_tabs' }
                                 
                             ],
                             value : 'posts' // Sets the default

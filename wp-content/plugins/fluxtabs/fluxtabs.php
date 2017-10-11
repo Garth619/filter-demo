@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) OR exit;
 
 register_activation_hook( __FILE__, 'fluxtabs_activation' );
 
-// Functions that need to happen upon activation
+// Plugin activation
 
 function fluxtabs_activation() {
 			
@@ -24,19 +24,17 @@ function fluxtabs_activation() {
 	 
 }
 
-// Register Custom Post Type
+
 
 if ( ! function_exists( 'flux_tabs' ) ) {
   
   add_action('init', 'flux_tabs');
   
-  
+  // Register Custom Post Type
   
   function flux_tabs() { 
 	  
-	  
-	  
-			$rename_cpt_url = sanitize_title(get_option('myplugin_field_cpt'));  
+	  	$rename_cpt_url = sanitize_title(get_option('myplugin_field_cpt'));  
 			$rename_cpt_title = get_option('myplugin_field_cpt');   
 
     	$args = array(    
@@ -55,7 +53,7 @@ if ( ! function_exists( 'flux_tabs' ) ) {
     	
     	// Flux Tab Tags
     	
-    	register_taxonomy ($rename_cpt_url.'-tag',array('flux_tabs'),
+    	register_taxonomy ('flux-tabs-tag',array('flux_tabs'),
 				array (
         	'hierarchical' => false,
 					'labels' => array (
@@ -89,12 +87,9 @@ if ( ! function_exists( 'flux_posts_shortcode' ) ) {
 
 add_shortcode( 'flux-tabs', 'flux_posts_shortcode' );
 
-// add_filter('widget_text', 'do_shortcode');
 
 function flux_posts_shortcode( $atts, $content = null ) { 
 	
-
-
 		global $wp_query,
 					$post;
 
@@ -133,7 +128,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 				
 				else {
 					
-					// prints out the cpt posts tag prefix as well as the tax title 
+				// prints out the cpt posts tag prefix as well as the tax title 
 					
 					
 				$mytest = sanitize_title( $atts['feed'] );
@@ -179,7 +174,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
     
     
         
-    // Flux Posts
+    // Flux Posts Loop
     
     $query = new WP_Query( array(
       'post_type' => array( sanitize_title( $atts['feed'] ) )
@@ -225,28 +220,17 @@ if ( ! function_exists( 'flux_static_page_shortcode' ) ) {
 	
 	function flux_static_page_shortcode( $atts, $content = null ) {
 		
-		
-		
-		
 		$atts = shortcode_atts( array(
        'selector' => '',
        ), $atts ); 
 	
-	
-
-	// How will this Vairable get pushed to my Jquery File ?? 
-	
-	 // $go = sanitize_title( $atts['selector'] );
-
-		// echo $go;?>
+		?>
 		
 		<div class="flux_tabs_page_wrapper">
 			
 					
 			<div id="isotope">
 				
-				
-			
 				<?php echo $content;?>
 			
 			</div><!-- isotope -->
@@ -259,7 +243,7 @@ if ( ! function_exists( 'flux_static_page_shortcode' ) ) {
 }
 
 
-// Flux Template Tags (Do Action) - template tags if you need custom classes somewhere in the template for whataver reason (similer to post_class). However I'm not currently using 
+// Flux Template Tags (Do Action) - template tags if you need custom classes somewhere in the template for whataver reason (similer to post_class). 
 
 if ( ! function_exists( 'fluxtabs_classes' ) ) {
 	
@@ -376,15 +360,7 @@ if ( !function_exists( 'flux_tabs_tinymce_extra_vars' ) ) {
 
 add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 
-
-
-
-
-// Settings
-
-
-
-
+// Settings API
 
 add_option( 'myplugin_field_cpt', 'flux_tabs' );
 add_option( 'demo-radio', 1 );
@@ -426,8 +402,6 @@ function flux_admin_load_scripts($hook) {
  
 	if( $hook != $flux_settings_page ) 
 		return;
- 
-	// wp_enqueue_script( 'myadmin-js', plugins_url( '/js/my-admin-min.js' , dirname(__FILE__) ) );
 	
 	wp_enqueue_script( 'myadmin-js', plugin_dir_url( __FILE__ ) . 'js/my-admin-min.js', array('jquery'), '1.0', false );
 	
@@ -437,11 +411,7 @@ function flux_admin_load_scripts($hook) {
 add_action('admin_enqueue_scripts', 'flux_admin_load_scripts');
  
 
- 
-
-function myplugin_settings_page() {
- 
-    ?>
+ function myplugin_settings_page() { ?>
  
     <div class="wrap">
        
@@ -701,7 +671,7 @@ function myplugin_field_cpt_input() {
       <?php
 }
 
-
+// Deregisters Custom Post Type if radio button selected
 
 if(get_option('demo-radio') == 2) {
 	
@@ -711,7 +681,7 @@ if(get_option('demo-radio') == 2) {
 }
 
 
-	add_action('init','delete_post_type', 100);
+add_action('init','delete_post_type', 100);
 
 
 }
@@ -795,9 +765,6 @@ function myplugin_field_9_input() {
 }
 
 
-
-
-
 // CSS
 
 
@@ -841,6 +808,8 @@ function flux_js() {
 
 add_action('wp_enqueue_scripts', 'flux_js');
 
+
+// Flush Rewrite Rules Again if Plugin is Deactivated
 
 
 function myplugin_deactivate() {
