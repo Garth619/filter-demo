@@ -306,13 +306,32 @@ if ( ! function_exists( 'flux_tabs_buttons' ) ) {
         if ( get_user_option( 'rich_editing' ) !== 'true' ) {
             return;
         }
+        
+        
+       
  
         add_filter( 'mce_external_plugins', 'flux_tabs_add_buttons' );
         add_filter( 'mce_buttons', 'flux_tabs_register_buttons' );
     }
 }
- 
 
+
+ 
+//add_action( 'current_screen', 'this_screen' );
+
+/*
+function this_screen() {
+
+    $current_screen = get_current_screen();
+
+    if( $current_screen ->post_type === "page" ) {
+
+       //print 'grrrrr';
+
+    }
+    
+}
+*/
 
 
 
