@@ -10,7 +10,7 @@ register_activation_hook( __FILE__, 'fluxtabs_activation' );
 
 function fluxtabs_activation() {
 			
-	 flux_tabs();
+	 // flux_tabs();
 	 flush_rewrite_rules();
 	 
 }
