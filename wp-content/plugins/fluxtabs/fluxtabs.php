@@ -33,16 +33,21 @@ if ( ! function_exists( 'flux_tabs' ) ) {
   
   
   function flux_tabs() { 
-	  $rename_cpt = get_option('myplugin_field_cpt');   
+	  
+	  
+	  
+			$rename_cpt_url = sanitize_title(get_option('myplugin_field_cpt'));  
+			$rename_cpt_title = get_option('myplugin_field_cpt');   
+
     	$args = array(    
-        	'label' => __('Flux Tabs CPT'),    
-        	'singular_label' => __('Flux Tab CPT'),    
+        	'label' => __($rename_cpt_title),    
+        	'singular_label' => __($rename_cpt_title),    
         	'public' => true,    
         	'show_ui' => true,
         	'has_archive' => false,	 
         	'capability_type' => 'post',    
         	'hierarchical' => false,    
-        	'rewrite' => array('with_front' => false,'slug' => $rename_cpt),
+        	'rewrite' => array('with_front' => false,'slug' => $rename_cpt_url),
 					'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
        	);    
    	 
@@ -50,19 +55,19 @@ if ( ! function_exists( 'flux_tabs' ) ) {
     	
     	// Flux Tab Tags
     	
-    	register_taxonomy ('flux-tab-tag',array('flux_tabs'),
+    	register_taxonomy ($rename_cpt_url.'-tag',array('flux_tabs'),
 				array (
         	'hierarchical' => false,
 					'labels' => array (
-            'name' => _x( 'Flux Tab Tags', 'taxonomy general name' ),
-            'singular_name' => _x( 'Flux Tab Tag', 'taxonomy singular name' ),
-            'search_items' =>  __( 'Search Flux Tab Tags' ),
-            'all_items' => __( 'All Flux Tab Tags' ),
-            'edit_item' => __( 'Edit Flux Tab Tag' ), 
-            'update_item' => __( 'Update Flux Tab Tag' ),
-            'add_new_item' => __( 'Add New Flux Tab Tag' ),
-            'new_item_name' => __( 'New Flux Tab Tag Name' ),
-            'menu_name' => __( 'Flux Tab Tags' ),
+            'name' => _x( $rename_cpt_title.' Tags', 'taxonomy general name' ),
+            'singular_name' => _x( $rename_cpt_title.' Tag', 'taxonomy singular name' ),
+            'search_items' =>  __( 'Search '.$rename_cpt_title.' Tags' ),
+            'all_items' => __( 'All '.$rename_cpt_title.' Tags' ),
+            'edit_item' => __( 'Edit '.$rename_cpt_title.' Tag' ), 
+            'update_item' => __( 'Update '.$rename_cpt_title.' Tag' ),
+            'add_new_item' => __( 'Add New '.$rename_cpt_title.' Tag' ),
+            'new_item_name' => __( 'New F'.$rename_cpt_title.'Tag Name' ),
+            'menu_name' => __( $rename_cpt_title.' Tags' ),
         ),
         'show_ui' => true,
         'query_var' => true,
@@ -448,9 +453,9 @@ function myplugin_settings_page() {
         <p><strong>To Use:</strong></p>
         
         <ul>
-	        <li>1. Create Posts for your blog and assign various Tags to each Post.</li>
+	        <li>1. Create Posts for your Blog and assign various Tags to each Post.</li>
 	        <li>2. Create a static Page.</li>
-	        <li>3. Look for the 1P21 Button on the Page's Rich Text Editor and add a Shortcode.</li>
+	        <li>3. Look for the 1P21 Button in the Page's Rich Text Editor and add a Shortcode.</li>
 	        <li>4. Click Update, enjoy.</li>
         </ul>
         
@@ -497,11 +502,11 @@ function myplugin_settings_init() {
     
    
     	  
-	  <p><i><strong style="color:red">Note: After you rename this Custom Post Type and hit Save Changes below, go to Settings --> Permalinks and click Save Changes.</strong> This will initiate your new Custom Post Type Name. Otherwise you will get 404 errors. For more information: <a href="https://typerocket.com/flushing-permalinks-in-wordpress/" target="_blank">Flushing Permalinks in Wordpress</a></i></p>
+	  <p><i><strong style="color:red">Note: After you rename this Custom Post Type and hit Save Changes below, go to Settings --> Permalinks and click Save Changes.</strong><br/> This will initiate your new Custom Post Type Name. Otherwise you will get 404 errors. For more information: <a href="https://typerocket.com/flushing-permalinks-in-wordpress/" target="_blank">Flushing Permalinks in Wordpress</a></i></p>
 	  
 	 
 	  
-	  <p><i>Future releases of Flux Tabs will allow for unlimited Custom Post Types to be used/created.</i></p>
+<!-- 	  <p><i>Future releases of Flux Tabs will allow for unlimited Custom Post Types to be used/created.</i></p> -->
 	  
 
 
