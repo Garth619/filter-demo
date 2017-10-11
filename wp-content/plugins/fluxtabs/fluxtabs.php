@@ -281,11 +281,57 @@ if ( ! function_exists( 'fluxtabs_classes' ) ) {
 // Single Post Button
 
 
+/*
+add_action( 'current_screen', 'wpdocs_this_screen' );
+ 
+
+
+function wpdocs_this_screen() {
+    $currentScreen = get_current_screen();
+    if( $currentScreen->id === "page" ) {
+        // Run some code, only on the admin widgets page
+    
+
+    
+    
+    }
+}
+*/
+
+
+
+
+
+/*
+
+function lamosty_is_screen( $base, $post_type = '' ) {
+    $screen = get_current_screen();
+
+    if ($screen->base == $base && $screen->post_type == $post_type) {
+        return true;
+    }
+
+    return false;
+    
+    
+    
+}
+
+
+if (lamosty_is_screen( 'post', 'apartment' ) ) {
+    
+	}
+*/
+
+
+
+
+
 
 if ( ! function_exists( 'flux_tabs_theme_setup' ) ) {
     function flux_tabs_theme_setup() {
- 
-        add_action( 'init', 'flux_tabs_buttons' );
+	    
+	   add_action( 'init', 'flux_tabs_buttons' );
  
     }
 }
@@ -308,30 +354,17 @@ if ( ! function_exists( 'flux_tabs_buttons' ) ) {
         }
         
         
-       
- 
-        add_filter( 'mce_external_plugins', 'flux_tabs_add_buttons' );
+
+        if ( ! function_exists( 'get_current_screen' ) )
+				return;
+
+        
+        
+	      add_filter( 'mce_external_plugins', 'flux_tabs_add_buttons' );
         add_filter( 'mce_buttons', 'flux_tabs_register_buttons' );
     }
 }
 
-
- 
-//add_action( 'current_screen', 'this_screen' );
-
-/*
-function this_screen() {
-
-    $current_screen = get_current_screen();
-
-    if( $current_screen ->post_type === "page" ) {
-
-       //print 'grrrrr';
-
-    }
-    
-}
-*/
 
 
 
@@ -381,7 +414,7 @@ add_action ( 'after_wp_tiny_mce', 'flux_tabs_tinymce_extra_vars' );
 
 // Settings API
 
-add_option( 'myplugin_field_cpt', 'flux_tabs' );
+add_option( 'myplugin_field_cpt', 'Flux Tabs' );
 add_option( 'demo-radio', 1 );
 add_option( 'myplugin_field_3', '#000000' );
 add_option( 'myplugin_field_4', '#969696' );
@@ -512,6 +545,7 @@ function myplugin_settings_init() {
     
     
     register_setting("myplugin_settings_group", "demo-radio");
+ 		
  		
  		add_settings_field(
        'myplugin_field_cpt',
