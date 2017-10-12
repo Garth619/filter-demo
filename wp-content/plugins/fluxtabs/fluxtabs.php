@@ -653,8 +653,6 @@ function myplugin_field_cpt_input() {
 }
 
 
-
-
 if(get_option('demo-radio') == 1) {
 	
  add_action('init', 'flux_tabs');
