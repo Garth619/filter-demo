@@ -27,6 +27,18 @@
 		"oAP": "\/index.php",
 		"oF": 0
 		},
+	"\/license.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/license.txt",
+		"oF": 0
+		},
+	"\/readme.html": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/readme.html",
+		"oF": 0
+		},
 	"\/wp-activate.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -4758,6 +4770,12 @@
 		"oF": 0,
 		"opt": 0
 		},
+	"\/wp-content\/plugins\/hello.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/wp-content\/plugins\/hello.php",
+		"oF": 0
+		},
 	"\/wp-content\/plugins\/index.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -5818,6 +5836,24 @@
 		"oAP": "\/wp-content\/themes\/starter-theme\/style-min.css",
 		"oF": 0,
 		"oS": 3
+		},
+	"\/wp-content\/uploads\/2017\/10\/San-Fran-Animation.mp4": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/wp-content\/uploads\/2017\/10\/San-Fran-Animation.mp4",
+		"oF": 0
+		},
+	"\/wp-content\/uploads\/wp-migrate-db\/.htaccess": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/wp-content\/uploads\/wp-migrate-db\/.htaccess",
+		"oF": 0
+		},
+	"\/wp-content\/uploads\/wp-migrate-db\/index.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/wp-content\/uploads\/wp-migrate-db\/index.php",
+		"oF": 0
 		},
 	"\/wp-cron.php": {
 		"ft": 8192,

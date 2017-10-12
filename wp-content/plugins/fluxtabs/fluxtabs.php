@@ -51,16 +51,6 @@ function fx_admin_notice_example_notice(){
 
 
 
-
-
-
-
-
-
-
-
-
-
 // Posts Shortcode
 
 
@@ -646,7 +636,9 @@ function myplugin_field_cpt_input() {
     
     echo( '<input type="text" name="myplugin_field_cpt" id="myplugin_field_cpt" value="'. get_option( 'myplugin_field_cpt' ) .'" /> <br/>' ); ?>
     
-    	  <p><i><strong style="color:red">Note: After you enable or rename this Custom Post Type and hit Save Changes below, go to Settings --> Permalinks and click Save Changes.</strong><br/> This will initiate your new Custom Post Type Name. Otherwise you will get 404 errors. For more information: <a href="https://typerocket.com/flushing-permalinks-in-wordpress/" target="_blank">Flushing Permalinks in Wordpress</a></i></p>
+    	  <p><i><strong style="color:red">Note: After you enable or rename this Custom Post Type and hit Save Changes below, go to <a href="<?php bloginfo('url');?>/wp-admin/options-permalink.php">Settings --> Permalinks</a> and click Save Changes.</strong><br/> This will initiate your new Custom Post Type Name. Otherwise you will get 404 errors. </p>
+    	  
+    	  <p><br/>For more information: <a href="https://typerocket.com/flushing-permalinks-in-wordpress/" target="_blank">Flushing Permalinks in Wordpress</a></i></p>
     
 <?php }
 

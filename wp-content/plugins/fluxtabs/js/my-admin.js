@@ -1,23 +1,70 @@
 
 
- jQuery(document).ready(function(){
+ jQuery(document).ready(function($){
 	
 	
 	// Settings Hide Custom Post Type Rename
   
   
-  jQuery('#radio_two').on('click', function(e) {
+  $('#radio_two').on('click', function(e) {
 	        	
-	  jQuery('#myplugin_field_cpt, span.rename_cpt').fadeOut();	  
+	  $('#myplugin_field_cpt, span.rename_cpt').fadeOut();	  
 	  
         	  
   });
   
-  jQuery('#radio_one').on('click', function(e) {
+  $('#radio_one').on('click', function(e) {
 	        	
-	  jQuery('#myplugin_field_cpt, span.rename_cpt').fadeIn();
+	  $('#myplugin_field_cpt, span.rename_cpt').fadeIn();
         	  
   });
+  
+  
+  
+  if($("#radio_two").is(":checked")){
+  //Code to append goes here
+
+
+$('#myplugin_field_cpt, span.rename_cpt').hide();
+
+
+
+
+}
+
+
+
+if($("#radio_one").is(":checked")){
+  //Code to append goes here
+
+
+$('#myplugin_field_cpt, span.rename_cpt').show();
+
+
+
+
+}
+  
+  
+  
+  
+  
+/*
+  $('#radio_two').change(
+    function(){
+        if (this.checked && this.value == 'Yes') {
+            
+        
+        	
+        
+        
+        }
+    });
+  
+*/
+  
+  
+  
   
 
 }); // Document Ready
