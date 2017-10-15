@@ -70,6 +70,8 @@ function flux_posts_shortcode( $atts, $content = null ) {
     ), $atts );
     	    
    ?>
+   
+   <?php  ob_start();?>
     
   
   <div class="button_wrapper">
@@ -142,7 +144,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 	</div><!-- button_wrapper -->
     
     
-    <?php ob_start();
+    <?php
     
     
         
@@ -821,7 +823,7 @@ function flux_tabs_internal_css_print() {
   
   echo '<style type="text/css">
   
-.button_wrapper{text-align:left;margin-bottom:35px}.button_wrapper button:focus {outline:0;}.button_wrapper button{font-weight:'.$settings_font_weight.';font-size:'.$settings_font_size.';text-transform:'.$settings_text_transform.';color:'.$settings_text_color.';font-family:'.$settings_font_family.';border:none;padding:8px 20px;margin-bottom:4px;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px;background:'.$settings_background.'}.button_wrapper button#clearall{font-family:'.$settings_font_family.';background:#969696;color:#fff}.button_wrapper button#clearall:hover{background:#acacac}.button_wrapper button.active{background:'.$settings_background_hover.'}button.active, button:hover {color:'.$settings_text_hover_color.';background:'.$settings_background_hover.'}
+.button_wrapper{text-align:left;margin:35px 0}.button_wrapper button:focus {outline:0;}.button_wrapper button{font-weight:'.$settings_font_weight.';font-size:'.$settings_font_size.';text-transform:'.$settings_text_transform.';color:'.$settings_text_color.';font-family:'.$settings_font_family.';border:none;padding:8px 20px;margin-bottom:4px;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px;background:'.$settings_background.'}.button_wrapper button#clearall{font-family:'.$settings_font_family.';background:#969696;color:#fff}.button_wrapper button#clearall:hover{background:#acacac}.button_wrapper button.active{background:'.$settings_background_hover.'}button.active, button:hover {color:'.$settings_text_hover_color.';background:'.$settings_background_hover.'}
 
 
 </style>';
