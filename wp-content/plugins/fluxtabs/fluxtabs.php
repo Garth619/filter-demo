@@ -76,7 +76,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
   
   <div class="button_wrapper">
 	
-		<div id="button_isotope_wrapper" class="button-group">
+		<div class="button_isotope_wrapper" class="button-group">
 			
 			
 			<?php
@@ -151,8 +151,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
     // Flux Posts Loop
     
     $query = new WP_Query( array(
-      'post_type' => array( sanitize_title( $atts['feed'] ) ),
-      'order' => 'ASC' 
+      'post_type' => array( sanitize_title( $atts['feed'] ) )
       
     ) );
     
@@ -163,13 +162,17 @@ function flux_posts_shortcode( $atts, $content = null ) {
             
             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
             
+            
+                        
             <div id="post-<?php the_ID(); ?>" <?php post_class('flux-post');?>>
                
-               <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+               <h2><?php the_title(); ?></h2>
                
                <?php the_content();?>
                
             </div>
+            
+					
             
             <?php endwhile;
             wp_reset_postdata(); ?>
@@ -197,7 +200,9 @@ if ( ! function_exists( 'flux_static_page_shortcode' ) ) {
 		
 		$atts = shortcode_atts( array(
        'selector' => '',
-       ), $atts ); 
+       ), $atts );
+       
+       ob_start(); 
 	
 		?>
 		
@@ -213,7 +218,9 @@ if ( ! function_exists( 'flux_static_page_shortcode' ) ) {
 		</div><!-- flux_tabs_page_wrapper -->
 	
 	
-	<?php }
+	<?php   $myvariabletwo = ob_get_clean();
+    
+    return $myvariabletwo; }
 
 }
 
@@ -877,5 +884,7 @@ function myplugin_deactivate() {
     flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'myplugin_deactivate' );
+
+
 
 

@@ -33,7 +33,7 @@ jQuery(document).ready(function($){
 
 
 
-	var fluxhtml = '<div class="button_wrapper"><div id="button_isotope_wrapper" class="button-group">';
+	var fluxhtml = '<div class="button_wrapper"><div class="button_isotope_wrapper" class="button-group">';
 	
 
 	
@@ -59,7 +59,7 @@ jQuery(document).ready(function($){
     
     $(this).parent().addClass(newClass);
     
-    $('#button_isotope_wrapper').append('<button data-filter-name="'+newClass+'" data-filter=".'+newClass+'">Button 1</button>');
+    $('.button_isotope_wrapper').append('<button data-filter-name="'+newClass+'" data-filter=".'+newClass+'">Button 1</button>');
     
     
    });
@@ -97,7 +97,7 @@ var filters = [];
 	
 	
 	
-	$('#button_isotope_wrapper').on( 'click', 'button', function() {
+	$('.button_isotope_wrapper').on( 'click', 'button', function() {
 
 	  $(this).toggleClass("active");
 
@@ -138,7 +138,7 @@ var filters = [];
 
   $('#clearall').click(function(){
 
-  	$('#button_isotope_wrapper button').removeClass('active');
+  	$('.button_isotope_wrapper button').removeClass('active');
 
 	  $container.isotope({ filter: '*' });
 	  
