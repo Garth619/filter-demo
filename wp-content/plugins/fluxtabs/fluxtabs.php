@@ -343,6 +343,7 @@ add_option( 'myplugin_field_cpt', 'Flux Tabs CPT' );
 add_option( 'demo-radio', 2 );
 add_option( 'myplugin_field_3', '#000000' );
 add_option( 'myplugin_field_4', '#969696' );
+add_option( 'myplugin_field_active', '#969696' );
 add_option( 'myplugin_field_5', 'arial' );
 add_option( 'myplugin_field_6', '#ffffff' );
 add_option( 'myplugin_field_7', '#ffffff' );
@@ -515,6 +516,18 @@ function myplugin_settings_init() {
     
      
     register_setting( 'myplugin_settings_group', 'myplugin_field_4' );
+    
+    
+    add_settings_field(
+       'myplugin_field_active',
+       'Background Active Color',
+       'myplugin_field_active_input',
+       'myplugin_settings',
+       'myplugin_settings_section_2'
+    );
+    
+     
+    register_setting( 'myplugin_settings_group', 'myplugin_field_active' );
     
     
     add_settings_field(
@@ -741,6 +754,13 @@ function myplugin_field_4_input() {
 }
 
 
+function myplugin_field_active_input() {
+ 
+    
+    echo( '<input type="text" name="myplugin_field_active" id="myplugin_field_active" value="'. get_option( 'myplugin_field_active' ) .'" />' ); 
+}
+
+
 function myplugin_field_5_input() {
  
     
@@ -814,6 +834,7 @@ function flux_tabs_internal_css_print() {
 		
 	$settings_background = get_option('myplugin_field_3');
 	$settings_background_hover = get_option('myplugin_field_4');
+	$settings_background_active = get_option('myplugin_field_active');
 	$settings_font_family = get_option('myplugin_field_5');
 	$settings_text_color = get_option('myplugin_field_6');
 	$settings_text_hover_color = get_option('myplugin_field_7');
@@ -823,7 +844,7 @@ function flux_tabs_internal_css_print() {
   
   echo '<style type="text/css">
   
-.button_wrapper{text-align:left;margin:35px 0}.button_wrapper button:focus {outline:0;}.button_wrapper button{font-weight:'.$settings_font_weight.';font-size:'.$settings_font_size.';text-transform:'.$settings_text_transform.';color:'.$settings_text_color.';font-family:'.$settings_font_family.';border:none;padding:8px 20px;margin-bottom:4px;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px;background:'.$settings_background.'}.button_wrapper button#clearall{font-family:'.$settings_font_family.';background:#969696;color:#fff}.button_wrapper button#clearall:hover{background:#acacac}.button_wrapper button.active{background:'.$settings_background_hover.'}button.active, button:hover {color:'.$settings_text_hover_color.';background:'.$settings_background_hover.'}
+.button_wrapper{text-align:left;margin:35px 0}.button_wrapper button:focus {outline:0;}.button_wrapper button{font-weight:'.$settings_font_weight.';font-size:'.$settings_font_size.';text-transform:'.$settings_text_transform.';color:'.$settings_text_color.';font-family:'.$settings_font_family.';border:none;padding:8px 20px;margin-bottom:4px;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out;cursor:pointer;margin-right:5px;background:'.$settings_background.'}.button_wrapper button#clearall{font-family:'.$settings_font_family.';background:#969696;color:#fff}.button_wrapper button#clearall:hover{background:'.$settings_background_hover.'}.button_wrapper button.active{background:'.$settings_background_active.'}button:hover {background:'.$settings_background_hover.'}
 
 
 </style>';
