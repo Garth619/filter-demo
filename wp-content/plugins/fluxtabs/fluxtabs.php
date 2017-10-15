@@ -66,7 +66,7 @@ function flux_posts_shortcode( $atts, $content = null ) {
 					$post;
 
 		$atts = shortcode_atts( array(
-       'feed' => 'post'
+       'feed' => 'post',
     ), $atts );
     	    
    ?>
@@ -151,7 +151,8 @@ function flux_posts_shortcode( $atts, $content = null ) {
     // Flux Posts Loop
     
     $query = new WP_Query( array(
-      'post_type' => array( sanitize_title( $atts['feed'] ) )
+      'post_type' => array( sanitize_title( $atts['feed'] ) ),
+      'order' => 'ASC' 
       
     ) );
     
