@@ -159,26 +159,7 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 
 
- 	// number one
-    	add_action('init', 'portfolio_register');    
-   	 
-	function portfolio_register() {    
-    	$args = array(    
-        	'label' => __('Portfolio'),    
-        	'singular_label' => __('Project'),    
-        	'public' => true,    
-        	'show_ui' => true,
-        	'has_archive' => true,	 
-        	'capability_type' => 'post',    
-        	'hierarchical' => false,    
-        	'rewrite' => true,    
-        	'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )    
-       	);    
-   	 
-    	register_post_type( 'portfolio' , $args );    
-	}    
-	register_taxonomy("project-type", array("portfolio"), array("hierarchical" => true, "label" => "Project Types", "singular_label" => "Project Type", "rewrite" => true));
-	
+
 	
 	
 	
